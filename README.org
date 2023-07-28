@@ -1,0 +1,69 @@
+#+title: System Configuration
+
+* Bootstrap New Computer
+
+** Step 1 - For MacOS, install Nix package manager
+
+Install the nix package manager, add unstable channel:
+
+#+BEGIN_SRC shell
+$ sh <(curl -L https://nixos.org/nix/install)
+#+END_SRC
+
+#+BEGIN_SRC shell
+nix-channel --add https://nixos.org/channels/nixpkgs-unstable nixpkgs
+#+END_SRC
+
+#+BEGIN_SRC shell
+nix-channel --update
+#+END_SRC
+
+
+** Step 2 - Install home-manager
+
+Add the home-manager channel and install it:
+
+#+BEGIN_SRC shell
+nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
+nix-channel --update
+#+END_SRC
+
+
+** Step 3 - If MacOS, install Darwin dependencies
+
+Install Xcode CLI tools and nix-darwin:
+
+#+BEGIN_SRC shell
+xcode-select --install
+#+END_SRC
+
+
+** Step 4 - Build the environment
+
+Download this repo and run:
+
+#+BEGIN_SRC shell
+./bin/build
+#+END_SRC
+
+
+** Step 5 - Reboot computer
+
+That's it. You're done.
+
+
+* Update Computer
+
+** Update dependencies
+
+#+BEGIN_SRC shell
+nix flake update
+#+END_SRC
+
+
+** Run build
+
+#+BEGIN_SRC shell
+./bin/build
+#+END_SRC
+
