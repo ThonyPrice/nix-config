@@ -22,6 +22,12 @@ let
     executable = false;
   };
 
+  spicetify = {
+    source = config/spicetify;
+    target = ".spicetify";
+    onChange = "${pkgs.spicetify-cli}/bin/spicetify-cli backup apply";
+  };
+
   yabai = {
     source = config/yabairc;
     target = ".config/yabai/yabairc";

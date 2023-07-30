@@ -26,5 +26,6 @@ with pkgs; [
   protobuf
   pyenv
   ripgrep
+  spicetify-cli
   tree-sitter
 ]

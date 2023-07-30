@@ -35,6 +35,7 @@ let name = "Thony Price"; in
       export PATH=”$HOME/.emacs.d/bin:$PATH”
     '';
   };
+
   starship = {
     enable = true;
     enableZshIntegration = true;
