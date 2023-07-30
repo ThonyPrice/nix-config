@@ -1,5 +1,5 @@
 # open terminal
-shift + cmd - return : /Applications/Kitty.app/Contents/MacOS/kitty --single-instance -d ~
+shift + cmd - return : /Applications/Nix\ Apps/kitty.app/Contents/MacOS/kitty --single-instance -d ~
 # open Slack
 shift + cmd - m : /Applications/Slack.app/Contents/MacOS/Slack
 # open page in browser

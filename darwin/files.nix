@@ -6,6 +6,11 @@ let
   xdg_dataHome   = "${home}/.local/share";
   xdg_stateHome  = "${home}/.local/state"; in
 {
+  k9s = {
+    source = ../common/config/k9s/skin.yml;
+    target = "${home}/Library/Application Support/k9s/skin.yml";
+  };
+
   sketchybar = {
     source = config/sketchybar;
     target = ".config/sketchybar";

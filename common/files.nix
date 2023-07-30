@@ -1,6 +1,11 @@
 { pkgs, ... }:
 
-{ 
+{
+  bat = {
+    source = config/bat;
+    target = ".config/bat";
+  };
+
   astroNvim = {
     source = pkgs.fetchFromGitHub {
       owner = "AstroNvim";
@@ -11,10 +16,8 @@
     target = ".config/nvim";
   };
 
-  # doomEmacsConfig = {
-  #   source = config/doom;
-  #   target = ".doom.d";
-  #   onChange = builtins.readFile config/doom-reload.sh;
-  # };
-
+  kitty = {
+    source = config/kitty;
+    target = ".config/kitty";
+  };
 }

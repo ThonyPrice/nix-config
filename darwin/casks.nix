@@ -1,5 +1,8 @@
 { ... }:
 
 [ 
+  "appcleaner"
+  "slack"
+  "spotify"
   "raycast"
 ]

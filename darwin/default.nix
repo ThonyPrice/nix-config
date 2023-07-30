@@ -33,8 +33,17 @@ let user = "thony"; in
   # Turn off NIX_PATH warnings when using flakes
   system.checks.verifyNixPath = false;
 
- # Load configuration that is shared across systems
-  environment.systemPackages = with pkgs; [ ] ++ (import ../common/packages.nix { pkgs = pkgs; });
+  # Manage fonts
+  fonts.fontDir.enable = false; # DANGER
+  # fonts.fonts =
+    # [ (pkgs.nerdfonts.override { fonts = [ "Meslo" ]; }) ];
+
+  # Load configuration that is shared across systems
+  environment = {
+    loginShell = pkgs.zsh;
+    shells = [ pkgs.bash pkgs.zsh ];
+    systemPackages = with pkgs; [ pkgs.coreutils ] ++ (import ../common/packages.nix { pkgs = pkgs; });
+  };
 
   launchd.user.agents.emacs.path = [ config.environment.systemPath ];
   launchd.user.agents.emacs.serviceConfig = {
@@ -81,6 +90,7 @@ let user = "thony"; in
       };
 
       finder = {
+        AppleShowAllExtensions = true;
         _FXShowPosixPathInTitle = false;
       };
 

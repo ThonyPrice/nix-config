@@ -7,7 +7,7 @@
 Install the nix package manager, add unstable channel:
 
 #+BEGIN_SRC shell
-$ sh <(curl -L https://nixos.org/nix/install)
+sh <(curl -L https://nixos.org/nix/install)
 #+END_SRC
 
 #+BEGIN_SRC shell

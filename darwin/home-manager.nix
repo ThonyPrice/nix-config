@@ -72,6 +72,11 @@ let
       home.packages = pkgs.callPackage ./packages.nix {};
       home.file = common-files // import ./files.nix { config = config; pkgs = pkgs; };
       programs = common-programs // {};
+      home.sessionVariables = {
+        PAGER = "less";
+        CLICLOLOR = 1;
+        EDITOR = "nvim";
+      };
     };
   };
 }
