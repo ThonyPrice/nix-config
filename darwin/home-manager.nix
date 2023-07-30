@@ -25,6 +25,7 @@ let
   homebrew.brewPrefix = "/opt/homebrew/bin";
 
   homebrew.taps = [
+    "homebrew/cask-fonts"
     "homebrew/services"
     "FelixKratz/formulae"
     "koekeishiya/formulae"
