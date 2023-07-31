@@ -16,6 +16,15 @@
     target = ".config/nvim";
   };
 
+  doom = {
+    text = "Boilerplate bootstrap file";
+    target = ".doom.d/bootstrap";
+    recursive = true;
+    # Script to bootstrap Doom Emacs
+    # Once completed, Doom config is not managed through Nix
+    onChange = builtins.readFile config/doom-bootstrap.sh;
+  };
+
   kitty = {
     source = config/kitty;
     target = ".config/kitty";
