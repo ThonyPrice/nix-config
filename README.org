@@ -67,3 +67,22 @@ nix flake update
 ./bin/build
 #+END_SRC
 
+
+* Manual Stuff
+
+I'm not yet able to configure everything through Nix.
+These things need to be manually set to complete all aspects of the system.
+
+** MacOS
+
+Authenticate to ~gh~ (GitHub CLI to enable notifications in /sketchybar/)
+
+#+BEGIN_SRC shell
+gh auth login to
+#+END_SRC
+
+Apply /spicetify/ configuration to theme Spotify client
+
+#+BEGIN_SRC shell
+spicetify-cli backup apply
+#+END_SRC
