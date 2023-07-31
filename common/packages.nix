@@ -12,6 +12,7 @@ with pkgs; [
   emacs
   exa
   fd
+  gh
   git
   go
   jq
