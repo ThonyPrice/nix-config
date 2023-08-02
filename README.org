@@ -99,3 +99,9 @@ Apply /spicetify/ configuration to theme Spotify client
 #+BEGIN_SRC shell
 spicetify-cli backup apply
 #+END_SRC
+
+*** Raycast
+
+Raycast can not be configured comfortably through Nix currently.
+Our custom script directory to start an emacsclient needs to be linked.
+Raycast settings > Extensions > Scripts > Script Commands > Add Directories > =~/.local/share/bin=.
