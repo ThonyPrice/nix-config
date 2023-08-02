@@ -75,3 +75,5 @@ case "$SENDER" in
   "windows_on_spaces") windows_on_spaces
   ;;
 esac
+
+window_state
