@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env sh
 
 window_state() {
   source "$HOME/.config/sketchybar/colors.sh"
@@ -62,6 +62,7 @@ windows_on_spaces () {
 
 mouse_clicked() {
   yabai -m window --toggle stack
+  # yabai -m window --toggle stack
   window_state
 }
 

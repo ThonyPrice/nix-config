@@ -9,7 +9,6 @@
 # it will be able to run the command without password
 
 sudo yabai --load-sa
-yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
 
 # Sketchybar signals
 yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
@@ -58,4 +57,3 @@ yabai -m rule --add label="About This Mac" app="System Information" title="About
 yabai -m rule --add label="Finder" app="^Finder$" title="(Co(py|nnect)|Move|Info|Pref)" manage=off
 
 echo "yabai configuration loaded.."
-
