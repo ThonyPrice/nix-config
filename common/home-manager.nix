@@ -1,6 +1,9 @@
 { config, pkgs, lib, ... }:
 
-let name = "Thony Price"; in
+let
+  home = builtins.getEnv "HOME";
+  name = "Thony Price";
+in
 {
   # Shared shell configuration
   bat.enable = true;
@@ -32,7 +35,9 @@ let name = "Thony Price"; in
         . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
       fi
       # end nix
-      export PATH=”$HOME/.emacs.d/bin:$PATH”
+      export PATH="${pkgs.emacs-git}/bin:$PATH"
+      export PATH="${home}/.emacs.d/bin:$PATH"
+      export PATH="${home}/git/nix-config/bin:$PATH"
     '';
   };
 

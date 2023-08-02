@@ -22,4 +22,4 @@ _print "${GREEN}Updating flake...${CLEAR}"
 nix flake update
 
 _print "${GREEN}Building new generation...${CLEAR}"
-./bin/build
+./bin/nix-build

@@ -11,6 +11,11 @@
 sudo yabai --load-sa
 yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
 
+# Sketchybar signals
+yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
+yabai -m signal --add event=window_focused action="sketchybar --trigger window_focus"
+yabai -m signal --add event=window_created action="sketchybar --trigger windows_on_spaces"
+yabai -m signal --add event=window_destroyed action="sketchybar --trigger windows_on_spaces"
 # bar settings
 # yabai -m config status_bar                   on
 # yabai -m config status_bar_text_font         "Helvetica Neue:Bold:12.0"
@@ -56,7 +61,7 @@ yabai -m config right_padding                8
 yabai -m config window_gap                   8
 
 # Force yabai to handle Emacs
-yabai -m rule --add app="^Emacs$" manage=on
+yabai -m rule --add app="^(E|e)macs$" manage=on
 yabai -m rule --add app='System Preferences' manage=off
 yabai -m rule --add app='Live' manage=off
 
