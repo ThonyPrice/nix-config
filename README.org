@@ -73,13 +73,26 @@ nix flake update
 I'm not yet able to configure everything through Nix.
 These things need to be manually set to complete all aspects of the system.
 
+** Common
+
+*** Doom Emacs
+
+I prefer Doom to manage Emacs configuration.
+Bootstrap Doom through the script ~./bin/doom-bootstrap~.  
+It is made available in ~$PATH~ once the configuration been built.
+
+
 ** MacOS
+
+*** GitHub CLI Authentication
 
 Authenticate to ~gh~ (GitHub CLI to enable notifications in /sketchybar/)
 
 #+BEGIN_SRC shell
 gh auth login to
 #+END_SRC
+
+*** Spicetify
 
 Apply /spicetify/ configuration to theme Spotify client
 

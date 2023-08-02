@@ -18,7 +18,7 @@ let
   # We use Homebrew to install impure software only (Mac Apps)
   homebrew.enable = true;
   homebrew.onActivation = {
-    autoUpdate = true;
+    autoUpdate = false;
     cleanup = "zap";
     upgrade = true;
   };

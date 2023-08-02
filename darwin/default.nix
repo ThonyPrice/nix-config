@@ -1,6 +1,11 @@
 { config, pkgs, nixpkgs, ... }:
 
-let user = "thony"; in
+let
+  home = builtins.getEnv "HOME";
+  emacsOverlaySha256 =
+    # Forked 2023-08-01
+    "01q8bw40dh350zjx7g50ib4599sbsjgg711f794ib4d21ixh9xai";
+  user = "thony"; in
 {
 
   imports = [
@@ -30,6 +35,14 @@ let user = "thony"; in
     '';
   };
 
+  # Define overlays
+  nixpkgs.overlays = [
+    (import (builtins.fetchTarball {
+      url = "https://github.com/thonyprice/emacs-overlay/archive/master.tar.gz";
+      sha256 = emacsOverlaySha256;
+    }))
+  ];
+
   # Turn off NIX_PATH warnings when using flakes
   system.checks.verifyNixPath = false;
 
@@ -42,15 +55,19 @@ let user = "thony"; in
   environment = {
     loginShell = pkgs.zsh;
     shells = [ pkgs.bash pkgs.zsh ];
-    systemPackages = with pkgs; [ pkgs.coreutils ] ++ (import ../common/packages.nix { pkgs = pkgs; });
+    systemPackages = with pkgs; [
+      pkgs.emacs-unstable  # Installs Emacs 28 + native-comp
+    ] ++ (import ../common/packages.nix { pkgs = pkgs; });
   };
 
   launchd.user.agents.emacs.path = [ config.environment.systemPath ];
   launchd.user.agents.emacs.serviceConfig = {
     KeepAlive = true;
     ProgramArguments = [
-      "${pkgs.emacs}/bin/emacs"
+      "${pkgs.emacs-git}/bin/emacs"
       "--daemon"
+      # Force Yabaii to manage emacsclients
+      "yabai --restart-service" # 
     ];
     StandardErrorPath = "/tmp/emacs.err.log";
     StandardOutPath = "/tmp/emacs.out.log";

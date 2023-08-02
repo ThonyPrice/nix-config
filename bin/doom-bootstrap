@@ -1,0 +1,57 @@
+#!/bin/sh -e
+
+VERSION=1.0
+
+GREEN='\033[1;32m'
+RED='\033[1;31m'
+CLEAR='\033[0m'
+
+_set_cfg_vars() {
+    DOOM_REPO_URL="https://github.com/doomemacs/doomemacs"
+    DOOM_CFG_REPO_URL="https://github.com/thonyprice/doom-emacs-private"
+
+    if [ "$(uname)" == "Darwin" ]; then
+        DOOM="$HOME/.emacs.d"
+        DOOM_LOCAL="$HOME/.doom.d"
+    else
+        DOOM="$HOME/.config/emacs"
+        DOOM_LOCAL="$HOME/.config/doom"
+    fi
+}
+
+_print() {
+    if [ "$(uname)" == "Darwin" ]; then
+        echo $@
+    else
+        echo -e $@
+    fi
+}
+
+_print "${CLEAR}Init Doom Reload...${CLEAR}"
+
+_print "${GREEN}Setting Config Variables...${CLEAR}"
+_set_cfg_vars
+_print "
+    Variables: \n
+    - DOOM_REPO_URL=${DOOM_REPO_URL} \n
+    - DOOM_CFG_REPO_URL=${DOOM_CFG_REPO_URL} \n
+    - DOOM=${DOOM} \n
+    - DOOM_LOCAL=${DOOM_LOCAL} \n
+"
+
+if [ ! -d "${DOOM}/bin" ]; then
+    _print "${GREEN}Bootstrapping Doom...${CLEAR}"
+    # Remove default Emacs config dir
+    "${HOME}/.nix-profile/bin/rm" -fdr "${DOOM}"
+    # Clone Doom Emacs config
+    "${HOME}/.nix-profile/bin/git" clone --depth=1 --single-branch "${DOOM_REPO_URL}" "${DOOM}"
+    # Clone _personal_ Doom Emacs config
+    "${HOME}/.nix-profile/bin/git" clone "${DOOM_CFG_REPO_URL}" "${DOOM_LOCAL}"
+    # Install Doom Emacs
+    $DOOM/bin/doom install
+else
+  _print "${RED}Doom binary already present in ${DOOM} directory!${CLEAR}"
+fi
+
+_print "${GREEN}Syncing Doom...${CLEAR}"
+$DOOM/bin/doom sync

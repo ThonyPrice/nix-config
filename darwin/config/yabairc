@@ -11,8 +11,7 @@
 sudo yabai --load-sa
 yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
 
-# bar settings
-yabai -m config external_bar all:45:0
+# Sketchybar signals
 yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
 yabai -m signal --add event=window_focused action="sketchybar --trigger window_focus"
 yabai -m signal --add event=window_created action="sketchybar --trigger windows_on_spaces"
@@ -52,11 +51,17 @@ yabai -m config right_padding                8
 yabai -m config window_gap                   8
 
 # Force yabai to handle Emacs
+<<<<<<< HEAD
 yabai -m rule --add label="^(E|e)macs$" app="^(E|e)macs$" manage=on
 # Exclude problematic apps from being managed:
 yabai -m rule --add app="^(Live|Calculator|Software Update|Dictionary|VLC|System Preferences|System Settings|Photo Booth|Archive Utility|Python|App Store|Alfred|Activity Monitor)$" manage=off
 yabai -m rule --add label="About This Mac" app="System Information" title="About This Mac" manage=off
 yabai -m rule --add label="Finder" app="^Finder$" title="(Co(py|nnect)|Move|Info|Pref)" manage=off
+=======
+yabai -m rule --add app="^(E|e)macs$" manage=on
+yabai -m rule --add app='System Preferences' manage=off
+yabai -m rule --add app='Live' manage=off
+>>>>>>> 9676c8fd23c6512c19706d458b96a090dccc668a
 
 echo "yabai configuration loaded.."
 

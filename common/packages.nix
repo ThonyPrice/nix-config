@@ -6,14 +6,16 @@ with pkgs; [
   bottom
   btop
   clang
+  cmake
   coreutils
   curl
   direnv
-  emacs
+  emacs-all-the-icons-fonts
   exa
   fd
   gh
   git
+  gnutls
   go
   jq
   k9s
