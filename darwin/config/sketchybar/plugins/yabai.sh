@@ -61,7 +61,7 @@ windows_on_spaces () {
 }
 
 mouse_clicked() {
-  yabai -m window --toggle float
+  yabai -m window --toggle stack
   window_state
 }
 
