@@ -1,5 +1,11 @@
 { pkgs, ... }:
 
+let
+  home           = builtins.getEnv "HOME";
+  xdg_configHome = "${home}/.config";
+  xdg_dataHome   = "${home}/.local/share";
+  xdg_stateHome  = "${home}/.local/state";
+in
 {
   bat = {
     source = config/bat;
@@ -13,16 +19,7 @@
       rev = "43d4581";
       sha256 = "nsUcYhBF0tBY71lFbOLM6TrxK4AF6w+CB5jfEKLB2yk=";
     };
-    target = ".config/nvim";
-  };
-
-  doom = {
-    text = "Boilerplate bootstrap file";
-    target = ".doom.d/bootstrap";
-    recursive = true;
-    # Script to bootstrap Doom Emacs
-    # Once completed, Doom config is not managed through Nix
-    onChange = builtins.readFile config/doom-bootstrap.sh;
+    target = "${home}/.config/nvim";
   };
 
   kitty = {

@@ -8,9 +8,10 @@
       url = "github:LnL7/nix-darwin/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    emacs-overlay = { url = "github:nix-community/emacs-overlay"; };
   };
 
-  outputs = { self, flake-utils, darwin, home-manager, nixpkgs, ... }@inputs: {
+  outputs = { self, flake-utils, darwin, home-manager, nixpkgs, emacs-overlay, ... }@inputs: {
     # M1 MBP, tested on macOS Ventura
     darwinConfigurations = {
       # Client MBP (MDM managed, hence the funky hostname)
