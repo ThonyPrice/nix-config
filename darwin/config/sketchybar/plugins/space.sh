@@ -1,19 +1,20 @@
-#!/bin/sh
+#!/bin/bash
 
 update() {
-  WIDTH="dynamic"
+  source "$CONFIG_DIR/colors.sh"
+  COLOR=$BACKGROUND_2
   if [ "$SELECTED" = "true" ]; then
-    WIDTH="0"
+    COLOR=$GREY
   fi
-
-  sketchybar --animate tanh 20 --set $NAME icon.highlight=$SELECTED label.width=$WIDTH
-
+  sketchybar --set $NAME icon.highlight=$SELECTED \
+                         label.highlight=$SELECTED \
+                         background.border_color=$COLOR
 }
 
 mouse_clicked() {
   if [ "$BUTTON" = "right" ]; then
     yabai -m space --destroy $SID
-    sketchybar --trigger space_change
+    sketchybar --trigger windows_on_spaces --trigger space_change
   else
     yabai -m space --focus $SID 2>/dev/null
   fi

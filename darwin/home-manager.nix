@@ -3,6 +3,7 @@
 let
   common-programs = import ../common/home-manager.nix { config = config; pkgs = pkgs; lib = lib; };
   common-files = import ../common/files.nix { pkgs = pkgs; };
+  home = builtins.getEnv "HOME";
   user = "thony"; in
 {
   imports = [ <home-manager/nix-darwin> ];
@@ -16,53 +17,31 @@ let
   };
 
   # We use Homebrew to install impure software only (Mac Apps)
-  homebrew.enable = true;
-  homebrew.onActivation = {
-    autoUpdate = false;
-    cleanup = "zap";
-    upgrade = true;
+  homebrew = {
+    enable = true;
+    onActivation = {
+      autoUpdate = false;
+      cleanup = "zap";
+      upgrade = true;
+    };
+    brewPrefix = "/opt/homebrew/bin";
+    taps = [
+      "homebrew/cask-fonts"
+      "homebrew/services"
+       "koekeishiya/formulae"
+    ];
+    brews = [
+      "koekeishiya/formulae/skhd"
+      "koekeishiya/formulae/yabai"
+    ];
+    casks = pkgs.callPackage ./casks.nix {};
+    # These app IDs are from using the mas CLI app
+    # mas = mac app store, https://github.com/mas-cli/mas
+    # homebrew.masApps = {
+      # "1password" = 1333542190;
+      # "drafts" = 1435957248;
+    # };
   };
-  homebrew.brewPrefix = "/opt/homebrew/bin";
-
-  homebrew.taps = [
-    "homebrew/cask-fonts"
-    "homebrew/services"
-    "FelixKratz/formulae"
-    "koekeishiya/formulae"
-  ];
-
-  homebrew.brews = [
-    {
-      name = "sketchybar";
-      restart_service = true;
-    }
-    "koekeishiya/formulae/skhd"
-    "koekeishiya/formulae/yabai"
-  ];
-
-  # These app IDs are from using the mas CLI app
-  # mas = mac app store
-  # https://github.com/mas-cli/mas
-  #
-  # $ mas search <app name>
-  #
-  homebrew.casks = pkgs.callPackage ./casks.nix {};
-  # homebrew.masApps = {
-    # "1password" = 1333542190;
-    # "drafts" = 1435957248;
-    # "hidden-bar" = 1452453066;
-    # "wireguard" = 1451685025;
-    # "yoink" = 457622435;
-  # };
-
-  # Set startup items
-  # environment.launchAgents = {
-  #   emacs = {
-  #     source = config/gnu.emacs.daemon.plist;
-  #     target = "Users/thony/Library/LaunchAgents/gnu.emacs.daemon.plist";
-  #     copy = true;
-  #   };
-  # };
 
   # Enable home-manager to manage the XDG standard
   home-manager = {
@@ -77,6 +56,40 @@ let
         PAGER = "less";
         CLICLOLOR = 1;
         EDITOR = "nvim";
+      };
+
+      # Skhd workaround
+      # https://github.com/noctuid/dotfiles/blob/e6d93d17d3723dad06c8277b7565035df836d938/nix/darwin/default.nix#L292
+      launchd.agents.skhd = {
+        enable = true;
+        config = {
+          ProgramArguments = [
+            "${pkgs.skhd}/bin/skhd"
+            "-c"
+            "${home}/.config/skhd/skhdrc"
+          ];
+          KeepAlive = true;
+          RunAtLoad = true;
+          ProcessType = "Interactive";
+          EnvironmentVariables = {
+            # NOTE: not necessary; will get PATH from non-interactive shell
+            # config (.zshenv, which loads my profile)
+
+            PATH = pkgs.lib.concatStringsSep ":" [
+              #  "/run/current-system/sw/bin"
+              #  "/nix/var/nix/profiles/default/"
+              "${home}/.nix-profile/bin"
+              #  "/bin"
+              #  "/sbin"
+              #  "/usr/bin"
+              #  "/usr/sbin"
+              #  "/usr/local/bin"
+              #  "${homeDir}/.local/bin"
+            ];
+          };
+          StandardOutPath = "/tmp/skhd.log";
+          StandardErrorPath = "/tmp/skhd.log";
+        };
       };
     };
   };

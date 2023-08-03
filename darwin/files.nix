@@ -21,7 +21,6 @@ in
     source = config/skhdrc;
     target = ".config/skhd/skhdrc";
     executable = false;
-    onChange = "/opt/homebrew/bin/skhd --restart-service";
   };
 
   spicetify = {
@@ -34,7 +33,6 @@ in
     source = config/yabairc;
     target = ".config/yabai/yabairc";
     executable = true;
-    onChange = "/opt/homebrew/bin/yabai --restart-service";
   };
 
   # Raycast script so that "Run Emacs" is available and uses Emacs daemon

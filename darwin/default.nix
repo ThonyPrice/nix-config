@@ -14,7 +14,19 @@ let
   ];
 
   # Auto upgrade nix package and the daemon service.
-  services.nix-daemon.enable = true;
+  services = {
+    nix-daemon = { enable = true; };
+    sketchybar = { enable = true; };
+    # skhd = { enable = true; };
+    yabai = { 
+      enable = true; 
+      enableScriptingAddition = true;
+      extraConfig =
+        "sudo -u ${user} ${home}/.config/yabai/yabairc";
+    };
+  };
+
+  # Manage system services
 
   # Setup user, packages, programs
   nix = {
