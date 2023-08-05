@@ -78,7 +78,7 @@ These things need to be manually set to complete all aspects of the system.
 *** Doom Emacs
 
 I prefer Doom to manage Emacs configuration.
-Bootstrap Doom through the script ~./bin/doom-bootstrap~.  
+Bootstrap Doom through the script ~./bin/doom-bootstrap~.
 It is made available in ~$PATH~ once the configuration been built.
 
 
