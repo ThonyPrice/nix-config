@@ -32,6 +32,9 @@
     # Community Emacs overlay
     emacs-overlay.url = "github:nix-community/emacs-overlay";
 
+    # Spice up Spotify client
+    spicetify-nix.url = "github:the-argus/spicetify-nix";
+
     # Used to generate NixOS images for other platforms
     nixos-generators = {
       url = "github:nix-community/nixos-generators";
@@ -73,9 +76,6 @@
       # Helper function to generate an attrset '{ x86_64-linux = f "x86_64-linux"; ... }'.
       forAllSystems = nixpkgs.lib.genAttrs supportedSystems;
 
-      # Define funcy hostname on MDM managed client host
-      pluto = "MAC-NL6CFNNHRP";
-
     in rec {
 
       # Contains my full system builds, including home-manager
@@ -88,7 +88,7 @@
       # darwin-rebuild switch --flake .#lookingglass
       darwinConfigurations = {
         # MDM Managed, hence the funky hostname
-        "${pluto}" =
+        pluto =
           import ./hosts/pluto { inherit inputs globals overlays; };
       };
 

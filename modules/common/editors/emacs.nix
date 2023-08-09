@@ -4,10 +4,11 @@
 
   config = lib.mkIf config.emacs.enable {
 
-    environment.systemPackages = with pkgs; [
-      # Installs Emacs 28 + native-comp
-      pkgs.emacs-unstable
-    ];
+    environment.systemPackages = with pkgs;
+      [
+        # Installs Emacs 28 + native-comp
+        pkgs.emacs-unstable
+      ];
 
     home-manager.users.${config.user} = {
 
@@ -23,11 +24,7 @@
       ];
 
       # Create quick aliases for launching Emacs
-      programs.zsh = {
-        shellAliases = {
-          e = "emacsclient -t $@";
-        };
-      };
+      programs.zsh = { shellAliases = { e = "emacsclient -t $@"; }; };
 
     };
 

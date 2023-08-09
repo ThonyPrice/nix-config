@@ -149,7 +149,7 @@
 
     # Install packages to /etc/profiles instead of ~/.nix-profile, useful when
     # using multiple profiles for one user
-    home-manager.useUserPackages = true;
+    # home-manager.useUserPackages = true;
 
     # Allow specified unfree packages (identified elsewhere)
     # Retrieves package object based on string name
@@ -158,7 +158,7 @@
 
     # Pin a state version to prevent warnings
     home-manager.users.${config.user}.home.stateVersion = stateVersion;
-    home-manager.users.root.home.stateVersion = stateVersion;
+    # home-manager.users.root.home.stateVersion = stateVersion;
 
   };
 

@@ -4,14 +4,14 @@
   config = lib.mkIf pkgs.stdenv.isDarwin {
 
     # Requires Homebrew to be installed
-    system.activationScripts.preUserActivation.text = ''
-      if ! xcode-select --version 2>/dev/null; then
-        $DRY_RUN_CMD xcode-select --install
-      fi
-      if ! /usr/local/bin/brew --version 2>/dev/null; then
-        $DRY_RUN_CMD /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-      fi
-    '';
+    # system.activationScripts.preUserActivation.text = ''
+    #   if ! xcode-select --version 2>/dev/null; then
+    #     $DRY_RUN_CMD xcode-select --install
+    #   fi
+    #   if ! /usr/local/bin/brew --version 2>/dev/null; then
+    #     $DRY_RUN_CMD /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    #   fi
+    # '';
 
     homebrew = {
       enable = true;
@@ -29,16 +29,14 @@
         "homebrew/cask" # Required for casks
         "homebrew/cask-fonts" # For fonts
         "homebrew/services" # Nice to have?
-        "koekeishiya/formulae" # WM and key manager
       ];
-      brews = [
-        "koekeishiya/formulae/skhd" # Sexy hotkey daemon
-        "koekeishiya/formulae/yabai" # TIling WM
-      ];
+      brews = [ ];
       casks = [
-        "1password" # 1Password packaging on Nix is broken for macOS
+        # "1password" # 1Password packaging on Nix is broken for macOS
         "appcleaner" # Uninstall helper
-        "spotify" # TODO: Manage through nix
+        "balenaetcher" # Flash OS images
+        "launchcontrol" # Launchctl GUI
+        "raycast" # Application launcher
         # TODO: Get fonts throug nixpkgs
         "sf-symbols" # Font for sketchybar
         "font-hack-nerd-font" # Font for sketchybar

@@ -4,9 +4,10 @@
 
     users.users."${config.user}" = {
       # macOS user
+      name = "${config.user}";
       home = config.homePath;
+      isHidden = false;
       shell = pkgs.zsh; # Default shell
-
     };
 
     # Used for aerc

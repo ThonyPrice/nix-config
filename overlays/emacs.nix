@@ -5,14 +5,16 @@ inputs: _final: prev:
 
 let
 
-  pinnedSha256 =
-    # Forked 2023-08-01
-    "01q8bw40dh350zjx7g50ib4599sbsjgg711f794ib4d21ixh9xai";
+  emacsOverlaySha256 =
+    # Fork synced at 2023-08-09
+    "01pj640a86cjhqyp58zzcz0w0963p9nvv4vv7l0pdr58cx0bsxrc";
   emacsUnstableFork =
-    "https://github.com/thonyprice/emacs-overlay/archive/${pinnedSha256}.tar.gz";
+    "https://github.com/thonyprice/emacs-overlay/archive/refs/heads/master.tar.gz";
 
 in {
+
   emacs = (import (builtins.fetchTarball {
     url = emacsUnstableFork;
+    sha256 = emacsOverlaySha256;
   }));
 }

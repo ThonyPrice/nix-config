@@ -1,17 +1,28 @@
 { config, pkgs, lib, ... }: {
 
-  home-manager.users.${config.user} = lib.mkIf pkgs.stdenv.isDarwin {
+  config = lib.mkIf pkgs.stdenv.isDarwin {
 
-    home.packages = with pkgs; [ sketchybar gh ];
+    # Enable Sketchybar service
+    services.sketchybar = { 
+      enable = true; 
+      package = pkgs.sketchybar;
+      config = ''
+        source ${config.homePath}/.config/sketchybar/sketchybarrc
+      '';
+      extraPackages = [ pkgs.gh ];
+    };
 
-    home.file.sketchybar = {
-      source = ./config;
-      target = "${config.homePath}/.config/sketchybar";
+    # Manage Sketchybar config directory
+    home-manager.users.${config.user} = {
+
+      home.file.sketchybar = {
+        source = ./config;
+        target = "${config.homePath}/.config/sketchybar";
+      };
+
     };
 
   };
 
-  # TODO: Refactor thin into same cfg as the rest
-  services.sketchybar = { enable = true; };
 
 }

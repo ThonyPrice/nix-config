@@ -27,6 +27,8 @@ inputs.darwin.lib.darwinSystem {
       # Applications
       kitty.enable = true;
       slack.enable = true;
+      spotify.enable = true;
+      
       raycast.enable = true;
 
       # Editors
