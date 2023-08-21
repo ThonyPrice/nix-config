@@ -29,6 +29,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    hyprland = {
+      url = "github:hyprwm/Hyprland";
+      # build with your own instance of nixpkgs
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # Community Emacs overlay
     emacs-overlay.url = "github:nix-community/emacs-overlay";
 
@@ -79,13 +85,13 @@
     in rec {
 
       # Contains my full system builds, including home-manager
-      # nixos-rebuild switch --flake .#tempest
+      # nixos-rebuild switch --flake .#toto
       nixosConfigurations = {
-        # template = import ./hosts/template { inherit inputs globals overlays; };
+        toto = import ./hosts/toto { inherit inputs globals overlays; };
       };
 
       # Contains my full Mac system builds, including home-manager
-      # darwin-rebuild switch --flake .#lookingglass
+      # darwin-rebuild switch --flake .#pluto
       darwinConfigurations = {
         # MDM Managed, hence the funky hostname
         pluto =

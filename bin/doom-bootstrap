@@ -42,11 +42,11 @@ _print "
 if [ ! -d "${DOOM}/bin" ]; then
     _print "${GREEN}Bootstrapping Doom...${CLEAR}"
     # Remove default Emacs config dir
-    "${HOME}/.nix-profile/bin/rm" -fdr "${DOOM}"
+    rm -fdr "${DOOM}"
     # Clone Doom Emacs config
-    "${HOME}/.nix-profile/bin/git" clone --depth=1 --single-branch "${DOOM_REPO_URL}" "${DOOM}"
+    git clone --depth=1 --single-branch "${DOOM_REPO_URL}" "${DOOM}"
     # Clone _personal_ Doom Emacs config
-    "${HOME}/.nix-profile/bin/git" clone "${DOOM_CFG_REPO_URL}" "${DOOM_LOCAL}"
+    git clone "${DOOM_CFG_REPO_URL}" "${DOOM_LOCAL}"
     # Install Doom Emacs
     $DOOM/bin/doom install
 else
