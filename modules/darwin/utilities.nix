@@ -6,10 +6,8 @@
 
     home.packages = with pkgs; [
       # visidata # CSV inspector
-      #
       coreutils
       dockutil
-      google-cloud-sdk
       ansible
       vault
       (writeShellApplication {
