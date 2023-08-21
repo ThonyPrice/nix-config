@@ -16,10 +16,9 @@ inputs.darwin.lib.darwinSystem {
     })
     inputs.home-manager.darwinModules.home-manager
     {
-      nixpkgs.overlays = [
-        inputs.firefox-darwin.overlay
-        inputs.emacs-overlay.overlay
-      ] ++ overlays;
+      nixpkgs.overlays =
+        [ inputs.firefox-darwin.overlay inputs.emacs-overlay.overlay ]
+        ++ overlays;
       networking.hostName = "pluto";
       # identityFile = "/Users/thony/.ssh/id_ed25519";
       gui.enable = true;
@@ -28,7 +27,7 @@ inputs.darwin.lib.darwinSystem {
       kitty.enable = true;
       slack.enable = true;
       spotify.enable = true;
-      
+
       raycast.enable = true;
 
       # Editors
@@ -37,9 +36,11 @@ inputs.darwin.lib.darwinSystem {
 
       # Programming
       go.enable = true;
+      javascript.enable = true;
       kubernetes.enable = true;
       nixlang.enable = true;
-      python.enable = false;
+      python.enable = true;
+      postgres.enable = true;
       terraform.enable = true;
 
     }

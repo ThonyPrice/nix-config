@@ -11,7 +11,7 @@
         nodePackages.pyright # Python language server
         black # Python formatter
         python310Packages.flake8 # Python linter
-        pyenv # Python env manager
+        poetry # Python dependency manager
       ];
 
       programs.zsh.shellAliases = { py = "python3"; };

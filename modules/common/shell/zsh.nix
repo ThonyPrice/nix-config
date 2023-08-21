@@ -1,8 +1,7 @@
 { config, pkgs, lib, ... }: {
 
   users.users.${config.user}.shell = pkgs.zsh;
-  programs.zsh.enable =
-    true;
+  programs.zsh.enable = true;
 
   home-manager.users.${config.user} = {
 
@@ -20,6 +19,7 @@
         l = "exa --color=auto -Fla";
         v = "nvim";
         vim = "nvim";
+        gauth = "gcloud auth login && gcloud auth application-default login";
       };
       initExtra = ''
         # nix
@@ -30,6 +30,16 @@
         export PATH="${pkgs.emacs-unstable}/bin:$PATH"
         export PATH="${config.homePath}/.emacs.d/bin:$PATH"
         export PATH="${config.homePath}/git/nix-config/bin:$PATH"
+        export PATH="${config.homePath}/.local/bin:$PATH"
+
+        # Add relevant Homebrew directories to PATH
+        eval "$(/opt/homebrew/bin/brew shellenv)"
+
+        # Add gcloud binary if installed
+        if [ -d ${config.homePath}/google-cloud-sdk ]; then
+          export PATH="${config.homePath}/google-cloud-sdk/bin:$PATH";
+          source '${config.homePath}/google-cloud-sdk/completion.bash.inc';
+        fi
       '';
     };
 
