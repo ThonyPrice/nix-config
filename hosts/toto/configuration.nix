@@ -94,12 +94,15 @@
   users.users.thony = {
     isNormalUser = true;
     description = "Thony Price";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "video"];
     packages = with pkgs; [
       firefox
-    #  thunderbird
     ];
   };
+
+  services.udev.extraRules = ''
+    ACTION=="add", SUBSYSTEM=="backlight", KERNEL=="intel_backlight", MODE="0666", RUN+="${pkgs.coreutils}/bin/chmod a+w /sys/class/backlight/%k/brightness"
+  '';
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
