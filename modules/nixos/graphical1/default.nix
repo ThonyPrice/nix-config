@@ -3,6 +3,7 @@
   imports = [
     ./rofi.nix
     ./waybar.nix
+    ./utils.nix
     # ./dunst.nix
     # ./fonts.nix
     # ./i3.nix
