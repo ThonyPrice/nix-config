@@ -7,11 +7,11 @@
     home-manager.users.${config.user} = {
 
       home.packages = with pkgs; [
-        # python310 # Standard Python interpreter
-        nodePackages.pyright # Python language server
-        black # Python formatter
-        python310Packages.flake8 # Python linter
+        python311 # Standard Python interpreter
+        python311Packages.flake8 # Python linter
         poetry # Python dependency manager
+        black # Python formatter
+        nodePackages.pyright # Python language server
       ];
 
       programs.zsh.shellAliases = { py = "python3"; };

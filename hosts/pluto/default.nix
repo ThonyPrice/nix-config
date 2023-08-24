@@ -1,5 +1,4 @@
-# The Looking Glass
-# System configuration for my work Macbook
+# Pluto. System configuration for my work Macbook
 
 { inputs, globals, overlays, ... }:
 
@@ -33,6 +32,7 @@ inputs.darwin.lib.darwinSystem {
       # Editors
       emacs.enable = true;
       neovim.enable = true;
+      vscode.enable = true;
 
       # Programming
       go.enable = true;

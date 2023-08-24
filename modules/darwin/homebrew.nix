@@ -30,16 +30,14 @@
         "homebrew/cask-fonts" # For fonts
         "homebrew/services" # Nice to have?
       ];
-      brews = [
-        "pre-commit" # Client specific
-      ];
+      brews = [ ];
       casks = [
-        # "1password" # 1Password packaging on Nix is broken for macOS
+        "1password" # 1Password packaging on Nix is broken for macOS
         "appcleaner" # Uninstall helper
         "balenaetcher" # Flash OS images
         "launchcontrol" # Launchctl GUI
-        "raycast" # Application launcher
         "pgadmin4" # Admin/dev platform for PostgreSQL
+        "raycast" # Application launcher
         # TODO: Get fonts throug nixpkgs
         "sf-symbols" # Font for sketchybar
         "font-hack-nerd-font" # Font for sketchybar

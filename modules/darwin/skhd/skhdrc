@@ -5,7 +5,7 @@ shift + cmd - m : /Applications/Slack.app/Contents/MacOS/Slack
 # open page in browser
 shift + cmd - b : open -a "Google Chrome" https://aim.arkkapital.com
 # restart yabai service
-shift + cmd - r : yabai --restart-service
+shift + cmd - u : yabai --restart-service
 
 # focus window
 alt - h : yabai -m window --focus west

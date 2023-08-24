@@ -1,6 +1,6 @@
 { config, pkgs, lib, ... }: {
 
-  options.neovim.enable = lib.mkEnableOption "Enable common Emacs";
+  options.neovim.enable = lib.mkEnableOption "Enable NeoVim";
 
   config = lib.mkIf config.neovim.enable {
     home-manager.users.${config.user} = {
@@ -13,18 +13,15 @@
         lazygit
       ];
 
-      home.sessionVariables = {
-        EDITOR = "nvim";
-        MANPAGER = "nvim +Man!";
-      };
+      home.sessionVariables = { MANPAGER = "nvim +Man!"; };
 
       # Configura Neovim with Astro
       home.file.astroNvim = {
         source = pkgs.fetchFromGitHub {
-          owner = "AstroNvim";
+          owner = "thonyprice";
           repo = "AstroNvim";
-          rev = "43d4581";
-          sha256 = "nsUcYhBF0tBY71lFbOLM6TrxK4AF6w+CB5jfEKLB2yk=";
+          rev = "9404f49";
+          sha256 = "aQb472pQRJHaCCkC+fvLye/VtUr40IJZbv3PaM0FCTk=";
         };
         target = "${config.homePath}/.config/nvim";
       };
