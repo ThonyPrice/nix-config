@@ -9,6 +9,19 @@
       programs.vscode = {
         enable = true;
         package = pkgs.vscodium;
+        extensions = with pkgs.vscode-extensions; [
+          # Look and Feel
+          catppuccin.catppuccin-vsc
+          vscodevim.vim
+          # Utils
+          humao.rest-client
+        ];
+
+        userSettings = {
+          "[nix]"."editor.tabSize" = 2;
+          "vim.useSystemClipboard" = true;
+          "workbench.colorTheme" = "Catppuccin Macchiato";
+        };
 
       };
 
