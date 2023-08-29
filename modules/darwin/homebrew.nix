@@ -38,10 +38,7 @@
         "launchcontrol" # Launchctl GUI
         "pgadmin4" # Admin/dev platform for PostgreSQL
         "raycast" # Application launcher
-        # TODO: Get fonts throug nixpkgs
         "sf-symbols" # Font for sketchybar
-        "font-hack-nerd-font" # Font for sketchybar
-        "font-jetbrains-mono-nerd-font" # Font for Kitty
       ];
     };
 
