@@ -23,6 +23,7 @@ inputs.darwin.lib.darwinSystem {
       gui.enable = true;
 
       # Applications
+      chromium.enable = false; # No build for Darwin
       kitty.enable = true;
       slack.enable = true;
       spotify.enable = true;
