@@ -1,6 +1,6 @@
 { config, pkgs, lib, ... }:
 
-let fontName = "Victor Mono";
+let fontName = "Fira Code";
 
 in {
 
@@ -8,16 +8,15 @@ in {
 
     fonts.packages = with pkgs; [
       victor-mono # Used for Vim and Terminal
-      (nerdfonts.override { fonts = [ "Hack" ]; }) # For Polybar, Rofi
+      (nerdfonts.override { fonts = [ 
+        "FiraCode" 
+        "Hack" 
+        "JetBrainsMono"
+      ]; }) # For Polybar, Rofi
     ];
     fonts.fontconfig.defaultFonts.monospace = [ fontName ];
 
     home-manager.users.${config.user} = {
-      xsession.windowManager.i3.config.fonts = {
-        names = [ "pango:${fontName}" ];
-        # style = "Regular";
-        # size = 11.0;
-      };
       services.polybar.config."bar/main".font-0 = "Hack Nerd Font:size=10;2";
       programs.rofi.font = "Hack Nerd Font 14";
       programs.alacritty.settings.font.normal.family = fontName;

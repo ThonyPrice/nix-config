@@ -2,5 +2,6 @@
 
 | Host     | Hardware | Purpose                             |
 |----------+----------+-------------------------------------+
-| [[./pluto/default.nix][Pluto]]    | MBP M1   | Client work MBP M1                  |
+| [[./pluto/default.nix][Pluto]]    | Apple MBP M1   | Client work laptop |
+| [[./toto/default.nix][Toto]]    | Lenovo ThinkPad XPS X1 | Employeer work MBP M1                  |
 | [[./template/default.nix][Template]] | nil      | Linux templateTemplate from  [[https://github.com/nmasur/dotfiles/tree/master/hosts/tempest][nmasur]] |

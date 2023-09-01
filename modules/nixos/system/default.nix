@@ -1,7 +1,13 @@
 { config, pkgs, lib, ... }: {
 
-  imports =
-    [ ./auto-upgrade.nix ./doas.nix ./journald.nix ./user.nix ./timezone.nix ];
+  imports = [ 
+    # ./auto-upgrade.nix 
+    # ./doas.nix 
+    # ./journald.nix 
+    ./locale.nix
+    ./timezone.nix 
+    ./user.nix 
+  ];
 
   config = lib.mkIf pkgs.stdenv.isLinux {
 

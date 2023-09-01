@@ -15,12 +15,12 @@
           transparency = 0;
           padding = 20;
           horizontal_padding = 20;
-          frame_color = config.theme.colors.base03;
+          frame_color = "0xffB7BDF8";
         };
 
         urgency_normal = {
-          background = config.theme.colors.base00;
-          foreground = config.theme.colors.base05;
+          background = "0xee24273A";
+          foreground = "0xffA5ADCB";
           timeout = 10;
         };
       };
