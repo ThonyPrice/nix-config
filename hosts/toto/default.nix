@@ -31,6 +31,7 @@ inputs.nixpkgs.lib.nixosSystem {
       gui.enable = true;
 
       # Applications
+      firefox.enable = true;
       kitty.enable = true;
       slack.enable = true;
       spotify.enable = true;
