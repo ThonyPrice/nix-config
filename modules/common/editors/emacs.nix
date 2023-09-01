@@ -21,6 +21,7 @@
         fd
         gnutls
         ripgrep
+        ncurses5 # Including tic, used to compile termfont
       ];
 
       # Configure dedicated terminfo to support emacsclient in Kitty
@@ -50,7 +51,7 @@
 
     # Compile custom terminfo
     system.activationScripts.postUserActivation.text = ''
-      tic -x -o ~/.terminfo ${config.homePath}/.config/terminfo/xterm-emacs.ti
+      ${config.homePath}/.nix-profile/bin/tic -x -o ~/.terminfo ${config.homePath}/.config/terminfo/xterm-emacs.ti
     '';
 
   };
