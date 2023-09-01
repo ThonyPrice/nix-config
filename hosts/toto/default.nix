@@ -4,31 +4,27 @@ inputs.nixpkgs.lib.nixosSystem {
   system = "x86_64-linux";
   specialArgs = { inherit inputs; }; # Required for Hyprland
   modules = [
-    globals
-    inputs.home-manager.nixosModules.home-manager
     ./configuration.nix # TODO: Merge with flake configs
     ./hardware.nix
     ../../modules/common
     ../../modules/nixos
+    (globals // rec {
+       user = "thony";
+       gitName = "thonyprice";
+       gitEmail = "thony.price@gmail.com";
+    })
+    inputs.home-manager.nixosModules.home-manager
     {
       nixpkgs.overlays = [
         inputs.emacs-overlay.overlay
       ] ++ overlays;
       networking.hostName = "toto";
 
-      # # Wayland/Hyprland
+      # Wayland/Hyprland
       programs.hyprland = {
         enable = true;
          package = inputs.hyprland.packages.x86_64-linux.hyprland;
       };
-
-      # # Waybar
-      # programs.waybar = {
-      #   enable = true;
-      #   package = inputs.nixpkgs.waybar.overrideAttrs (oldAttrs: {
-      #     mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
-#});
-      # };
 
       # identityFile = "/Users/thony/.ssh/id_ed25519";
 
@@ -38,8 +34,6 @@ inputs.nixpkgs.lib.nixosSystem {
       kitty.enable = true;
       slack.enable = true;
       spotify.enable = true;
-      
-      raycast.enable = false;
 
       # Editors
       emacs.enable = true;
@@ -53,5 +47,7 @@ inputs.nixpkgs.lib.nixosSystem {
       terraform.enable = true;
 
     }
+
   ];
+
 }

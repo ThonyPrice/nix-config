@@ -1,5 +1,5 @@
 { ... }: {
 
-  imports = [ ./calibre.nix ./nautilus.nix ];
+  imports = [ ];
 
 }

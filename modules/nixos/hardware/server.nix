@@ -1,8 +1,8 @@
 { config, lib, ... }: {
 
-  config = lib.mkIf config.server {
+  config = {
 
-    # Servers need a bootloader or they won't start
+    # Bootloader
     boot.loader.systemd-boot.enable = true;
     boot.loader.efi.canTouchEfiVariables = true;
 

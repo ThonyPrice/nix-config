@@ -4,13 +4,18 @@
 
     services.xserver = {
 
-      layout = "us";
+      # Configure keymap in X11
+      layout = "se";
+      xkbVariant = "mac";
 
       # Keyboard responsiveness
       autoRepeatDelay = 250;
       autoRepeatInterval = 40;
 
     };
+
+    # Configure console keymap
+    console.keyMap = "sv-latin1";
 
     # Use capslock as escape and/or control
     services.keyd = {
@@ -22,9 +27,6 @@
         };
       };
     };
-
-    # Enable num lock on login
-    home-manager.users.${config.user}.xsession.numlock.enable = true;
 
   };
 

@@ -3,11 +3,9 @@
   imports = [
     ./dunst.nix
     ./fonts.nix
-    ./i3.nix
-    ./picom.nix
-    ./polybar.nix
     ./rofi.nix
-    ./xorg.nix
+    ./utils.nix
+    ./waybar.nix
   ];
 
   options = {

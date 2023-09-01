@@ -1,17 +1,17 @@
 { config, pkgs, lib, ... }:
 
-let
 
-  var = "Hello";
-
-in {
+{
 
   config = lib.mkIf pkgs.stdenv.isLinux {
 
-    # Hyprland itself
-    # programs.hyperland = {
+    # Enable the X11 windowing system with Wayland.
+    # services.xserver = {
     #   enable = true;
-    #   package = inputs.hyprland.packages.${pkgs.system}.hyprland;
+    #   displayManager.gdm = {
+    #     enable = true;
+    #     wayland = true;
+    #   };
     # };
 
     # Waybar
@@ -25,6 +25,11 @@ in {
     environment.systemPackages = [
       pkgs.swayosd
     ];
+    
+    # Fix permissions to edit backligt
+    services.udev.extraRules = ''
+      ACTION=="add", SUBSYSTEM=="backlight", KERNEL=="intel_backlight", MODE="0666", RUN+="${pkgs.coreutils}/bin/chmod a+w /sys/class/backlight/%k/brightness"
+    '';
 
     home-manager.users.${config.user} = {};
 
