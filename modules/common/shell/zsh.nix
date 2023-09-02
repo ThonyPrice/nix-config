@@ -33,7 +33,9 @@
         export PATH="${config.homePath}/.local/bin:$PATH"
 
         # Add relevant Homebrew directories to PATH
-        eval "$(/opt/homebrew/bin/brew shellenv)"
+        if [ -x "$(command -v brew)" ]; then
+          eval "$(/opt/homebrew/bin/brew shellenv)"
+        fi
 
         # Add gcloud binary if installed
         if [ -d ${config.homePath}/google-cloud-sdk ]; then
