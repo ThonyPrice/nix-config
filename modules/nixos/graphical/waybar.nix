@@ -6,6 +6,7 @@
 
     environment.systemPackages = with pkgs; [
       waybar
+      swayosd
     ];
     
     # Fix permissions to edit backligt
@@ -27,7 +28,7 @@
         style = ''
                  * {
                    font-family: "JetBrainsMono Nerd Font";
-                   font-size: 12pt;
+                   font-size: 11pt;
                    font-weight: bold;
                    border-radius: 0px;
                    transition-property: background-color;
@@ -50,9 +51,9 @@
                    background-color: transparent;
                  }
                  window > box {
-                   margin-left: 5px;
-                   margin-right: 5px;
-                   margin-top: 5px;
+                   margin-left: 0px;
+                   margin-right: 0px;
+                   margin-top: 0px;
                    background-color: rgb(30, 30, 46);
                  }
            #workspaces {
@@ -161,18 +162,18 @@
           modules-left = [
             "custom/launcher"
             "wlr/workspaces"
-            "temperature"
+            # "temperature"
             #"idle_inhibitor"
-            "custom/wall"
-            "mpd"
-            "custom/cava-internal"
+            # "custom/wall"
+            # "mpd"
+            # "custom/cava-internal"
           ];
           modules-center = [
             "clock"
           ];
           modules-right = [
             "pulseaudio"
-            "backlight"
+            # "backlight"
             "memory"
             "cpu"
             "network"
@@ -241,10 +242,9 @@
           };
           "clock" = {
             "interval" = 1;
-            "format" = "{:%I:%M %p  %A %b %d}";
+            "format" = "{:%I:%M}";
             "tooltip" = true;
-            /* "tooltip-format"= "{=%A; %d %B %Y}\n<tt>{calendar}</tt>" */
-            "tooltip-format" = "上午：高数\n下午：Ps\n晚上：Golang\n<tt>{calendar}</tt>";
+            "tooltip-format" = "晚上：Golang\n<tt>{calendar}</tt>";
           };
           "memory" = {
             "interval" = 1;
