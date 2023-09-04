@@ -51,7 +51,7 @@
 
     # Compile custom terminfo
     system.activationScripts.postUserActivation.text = ''
-      ${config.homePath}/.nix-profile/bin/tic -x -o ~/.terminfo ${config.homePath}/.config/terminfo/xterm-emacs.ti
+      ${pkgs.ncurses5}/bin/tic -x -o ~/.terminfo ${config.homePath}/.config/terminfo/xterm-emacs.ti
     '';
 
   };
