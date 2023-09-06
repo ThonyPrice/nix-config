@@ -70,14 +70,10 @@
       };
 
       # Common overlays to always use
-      overlays = [
-        inputs.nur.overlay
-        (import ./overlays/emacs.nix inputs)
-      ];
+      overlays = [ inputs.nur.overlay (import ./overlays/emacs.nix inputs) ];
 
       # System types to support.
-      supportedSystems =
-        [ "x86_64-linux" "aarch64-linux" "aarch64-darwin" ];
+      supportedSystems = [ "x86_64-linux" "aarch64-linux" "aarch64-darwin" ];
 
       # Helper function to generate an attrset '{ x86_64-linux = f "x86_64-linux"; ... }'.
       forAllSystems = nixpkgs.lib.genAttrs supportedSystems;
@@ -94,8 +90,7 @@
       # darwin-rebuild switch --flake .#pluto
       darwinConfigurations = {
         # MDM Managed, hence the funky hostname
-        pluto =
-          import ./hosts/pluto { inherit inputs globals overlays; };
+        pluto = import ./hosts/pluto { inherit inputs globals overlays; };
       };
 
       # For quickly applying home-manager settings with:
