@@ -21,6 +21,7 @@ in {
         age # Encryption
         bc # Calculator
         btop # Show system processes
+        cloud-sql-proxy # GCP proxy CLI
         curl # Url fetcher
         dig # DNS lookup
         killall # Force quit
