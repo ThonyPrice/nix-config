@@ -4,11 +4,8 @@
 
   config = lib.mkIf pkgs.stdenv.isLinux {
 
-    environment.systemPackages = with pkgs; [
-      waybar
-      swayosd
-    ];
-    
+    environment.systemPackages = with pkgs; [ waybar swayosd ];
+
     # Fix permissions to edit backligt
     services.udev.extraRules = ''
       ACTION=="add", SUBSYSTEM=="backlight", KERNEL=="intel_backlight", MODE="0666", RUN+="${pkgs.coreutils}/bin/chmod a+w /sys/class/backlight/%k/brightness"
@@ -65,6 +62,7 @@
                    padding-bottom: 3px;
                    padding-left: 6px;
                    padding-right: 6px;
+                   color: #24273A;
                  }
            #workspaces button.active {
                    background-color: #89b4fa;
@@ -72,16 +70,6 @@
                  }
            #workspaces button.urgent {
                    color: #24273A;
-                 }
-           #workspaces button:hover {
-                   background-color: rgb(248, 189, 150);
-                   color: #24273A;
-                 }
-                 tooltip {
-                   background: rgb(48, 45, 65);
-                 }
-                 tooltip label {
-                   color: rgb(217, 224, 238);
                  }
            #custom-launcher {
                    font-size: 20px;
@@ -161,16 +149,14 @@
           "position" = "top";
           modules-left = [
             "custom/launcher"
-            "wlr/workspaces"
+            "hyprland/workspaces"
             # "temperature"
             # "idle_inhibitor"
             # "custom/wall"
             # "mpd"
             # "custom/cava-internal"
           ];
-          modules-center = [
-            "clock"
-          ];
+          modules-center = [ "clock" ];
           modules-right = [
             "pulseaudio"
             # "backlight"
@@ -189,7 +175,8 @@
           "custom/wall" = {
             "on-click" = "wallpaper_random";
             "on-click-middle" = "default_wall";
-            "on-click-right" = "killall dynamic_wallpaper || dynamic_wallpaper &";
+            "on-click-right" =
+              "killall dynamic_wallpaper || dynamic_wallpaper &";
             "format" = " 󰠖 ";
             "tooltip" = false;
           };
@@ -197,10 +184,9 @@
             "exec" = "sleep 1s && cava-internal";
             "tooltip" = false;
           };
-          "wlr/workspaces" = {
+          "hyprland/workspaces" = {
             "format" = "{icon}";
             "on-click" = "activate";
-            "active-only" = "false";
           };
           "idle_inhibitor" = {
             "format" = "{icon}";
@@ -221,9 +207,7 @@
             "scroll-step" = 1;
             "format" = "{icon} {volume}%";
             "format-muted" = "󰖁 Muted";
-            "format-icons" = {
-              "default" = [ "" "" "" ];
-            };
+            "format-icons" = { "default" = [ "" "" "" ]; };
             "on-click" = "pamixer -t";
             "tooltip" = false;
           };
@@ -241,16 +225,16 @@
           };
           "clock" = {
             "interval" = 1;
-            "format" = "{:%I:%M}";
+            "format" = "{:%H:%M}";
             "tooltip" = true;
-            "tooltip-format" = "晚上：Golang\n<tt>{calendar}</tt>";
+            "tooltip-format" = ''
+              晚上：Golang
+              <tt>{calendar}</tt>'';
           };
           "memory" = {
             "interval" = 1;
             "format" = "󰍛 {percentage}%";
-            "states" = {
-              "warning" = 85;
-            };
+            "states" = { "warning" = 85; };
           };
           "cpu" = {
             "interval" = 1;
@@ -268,7 +252,8 @@
             "on-scroll-up" = "mpc --quiet prev";
             "on-scroll-down" = "mpc --quiet next";
             "smooth-scrolling-threshold" = 5;
-            "tooltip-format" = "{title} - {artist} ({elapsedTime:%M:%S}/{totalTime:%H:%M:%S})";
+            "tooltip-format" =
+              "{title} - {artist} ({elapsedTime:%M:%S}/{totalTime:%H:%M:%S})";
           };
           "network" = {
             "format-disconnected" = "󰯡 Disconnected";
@@ -297,7 +282,7 @@
       };
 
     };
- 
+
   };
 
 }
