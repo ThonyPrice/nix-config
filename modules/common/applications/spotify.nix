@@ -9,12 +9,13 @@
     };
   };
 
-  config = lib.mkIf (config.gui.enable && config.spotify.enable) {
-    unfreePackages = [ "spotify" ];
-    home-manager.users.${config.user} = {
-      home.packages = with pkgs; [ spotify spicetify-cli ];
-    };
+  config = lib.mkIf
+    (config.gui.enable && config.spotify.enable && pkgs.stdenv.isDarwin) {
+      unfreePackages = [ "spotify" ];
+      home-manager.users.${config.user} = {
+        home.packages = with pkgs; [ spotify spicetify-cli ];
+      };
 
-  };
+    };
 
 }

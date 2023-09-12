@@ -1,5 +1,5 @@
 { ... }: {
 
-  imports = [ ];
+  imports = [ ./spicetify.nix ];
 
 }
