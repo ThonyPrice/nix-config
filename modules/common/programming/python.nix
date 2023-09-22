@@ -12,6 +12,7 @@
         poetry # Python dependency manager
         black # Python formatter
         nodePackages.pyright # Python language server
+        openssl
       ];
 
       programs.zsh.shellAliases = { py = "python3"; };
