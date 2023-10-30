@@ -6,13 +6,22 @@ in {
 
   config = lib.mkIf (config.gui.enable && pkgs.stdenv.isLinux) {
 
-    fonts.packages = with pkgs; [
-      victor-mono # Used for Vim and Terminal
-      (nerdfonts.override {
-        fonts = [ "FiraCode" "Hack" "JetBrainsMono" ];
-      }) # For Polybar, Rofi
-    ];
-    fonts.fontconfig.defaultFonts.monospace = [ fontName ];
+    fonts = {
+      packages = with pkgs; [
+        victor-mono # Used for Vim and Terminal
+        (nerdfonts.override {
+          fonts = [ "FiraCode" "Hack" "JetBrainsMono" ];
+        }) # For Polybar, Rofi
+      ];
+
+      enableDefaultPackages = true;
+      fontconfig = {
+        antialias = true;
+        hinting.enable = true;
+        hinting.autohint = true;
+        defaultFonts.monospace = [ fontName ];
+      };
+    };
 
     home-manager.users.${config.user} = {
       services.polybar.config."bar/main".font-0 = "Hack Nerd Font:size=10;2";

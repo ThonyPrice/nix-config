@@ -23,7 +23,7 @@
           target = "graphical-session.target";
         };
         style = ''
-                 * {
+                * {
                    font-family: "JetBrainsMono Nerd Font";
                    font-size: 9pt;
                    font-weight: bold;
@@ -56,6 +56,7 @@
            #workspaces {
                    padding-left: 0px;
                    padding-right: 4px;
+                   color: #ff0000;
                  }
            #workspaces button {
                    padding-top: 3px;
@@ -185,7 +186,7 @@
             "tooltip" = false;
           };
           "hyprland/workspaces" = {
-            "format" = "{icon}";
+            "format" = "{name}";
             "on-click" = "activate";
           };
           "idle_inhibitor" = {
