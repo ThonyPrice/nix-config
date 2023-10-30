@@ -12,6 +12,7 @@
         shift + cmd - return : ${pkgs.kitty}/bin/kitty --single-instance -d ~
         shift + cmd - m : /Applications/Slack.app/Contents/MacOS/Slack
         shift + cmd - u : launchctl stop org.nixos.yabai
+        shift + cmd - g : ${pkgs.kitty}/bin/kitty --hold zsh -c 'TERM=xterm-emacs emacsclient -t -F "((name . \"capture\"))" -e "(menu-bar-mode 1)" -e "(my/org-capture-frame)"'
 
         # focus window
         alt - h : yabai -m window --focus west

@@ -22,7 +22,7 @@ in {
         bc # Calculator
         btop # Show system processes
         cbonsai # Shell bonsai, why noot
-        cloud-sql-proxy # GCP proxy CLI
+        google-cloud-sql-proxy # GCP proxy CLI
         curl # Url fetcher
         dig # DNS lookup
         killall # Force quit

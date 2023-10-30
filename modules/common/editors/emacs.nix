@@ -44,7 +44,12 @@
 
       # Create quick aliases for launching Emacs
       programs.zsh = {
-        shellAliases = { e = "TERM=xterm-emacs emacsclient -t $@"; };
+        shellAliases = {
+          e = "TERM=xterm-emacs emacsclient -t $@";
+          emacs-capture = ''
+            TERM=xterm-emacs emacsclient -t -F "((name . \"capture\"))" -e "(menu-bar-mode 1)" -e "(my/org-capture-frame)"
+          '';
+        };
       };
 
     };
