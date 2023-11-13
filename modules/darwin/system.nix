@@ -123,7 +123,7 @@
 
         };
 
-        # Disable "Are you sure you want to open" dialog
+        # Set "Are you sure you want to open" dialog
         LaunchServices.LSQuarantine = true;
 
         # Where to save screenshots
