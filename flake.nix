@@ -90,7 +90,8 @@
       # darwin-rebuild switch --flake .#pluto
       darwinConfigurations = {
         # MDM Managed, hence the funky hostname
-        pluto = import ./hosts/pluto { inherit inputs globals overlays; };
+        MAC-NL6CFNNHRP =
+          import ./hosts/pluto { inherit inputs globals overlays; };
       };
 
       # For quickly applying home-manager settings with:
