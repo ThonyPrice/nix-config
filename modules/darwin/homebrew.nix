@@ -35,6 +35,7 @@
         "1password" # 1Password packaging on Nix is broken for macOS
         "appcleaner" # Uninstall helper
         "balenaetcher" # Flash OS images
+        "dropbox" # Used for Orgzly syncs
         "launchcontrol" # Launchctl GUI
         "pgadmin4" # Admin/dev platform for PostgreSQL
         "raycast" # Application launcher
