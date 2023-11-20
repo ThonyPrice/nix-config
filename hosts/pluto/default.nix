@@ -18,7 +18,7 @@ inputs.darwin.lib.darwinSystem {
       nixpkgs.overlays =
         [ inputs.firefox-darwin.overlay inputs.emacs-overlay.overlay ]
         ++ overlays;
-      networking.hostName = "pluto";
+      networking.hostName = "MAC-NL6CFNNHRP";
       # identityFile = "/Users/thony/.ssh/id_ed25519";
       gui.enable = true;
 
