@@ -123,6 +123,11 @@
                   yabai -m window --grid 5:5:1:1:3:3;\
                   sketchybar --trigger window_focus
 
+        # toggle sticky, topmost and resize to picture-in-picture size
+        alt - p : yabai -m window --toggle sticky;\
+                yabai -m window --toggle topmost;\
+                yabai -m window --grid 2:2:4:0:1:1
+
         # change layout of desktop
         ctrl + alt - t : yabai -m space --layout bsp
         ctrl + alt - f : yabai -m space --layout float
