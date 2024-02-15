@@ -56,17 +56,17 @@
            #workspaces {
                    padding-left: 0px;
                    padding-right: 4px;
-                   color: #ff0000;
+                   color: #24273A;
                  }
            #workspaces button {
                    padding-top: 3px;
                    padding-bottom: 3px;
                    padding-left: 6px;
                    padding-right: 6px;
-                   color: #24273A;
+                   color: #CDD6F4;
                  }
            #workspaces button.active {
-                   background-color: #89b4fa;
+                   background-color: #89b4fa
                    color: #24273A;
                  }
            #workspaces button.urgent {
