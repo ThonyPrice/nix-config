@@ -6,17 +6,17 @@
   home-manager.users.${config.user} = {
 
     # Packages used in abbreviations and aliases
-    home.packages = with pkgs; [ exa ];
+    home.packages = with pkgs; [ eza ];
 
     programs.zsh = {
       enable = true;
       autocd = false;
       enableCompletion = true;
-      enableAutosuggestions = true;
+      autosuggestion.enable = true;
       syntaxHighlighting.enable = true;
       shellAliases = {
         k = "kubectl";
-        l = "exa --color=auto -Fla";
+        l = "eza --color=auto -la";
         v = "nvim";
         vim = "nvim";
         gauth = "gcloud auth login && gcloud auth application-default login";

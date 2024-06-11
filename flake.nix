@@ -30,7 +30,9 @@
     };
 
     hyprland = {
-      url = "github:hyprwm/Hyprland";
+      # url = "github:hyprwm/Hyprland";
+      # See issue: https://github.com/hyprwm/Hyprland/issues/5891
+      url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
       # build with your own instance of nixpkgs
       inputs.nixpkgs.follows = "nixpkgs";
     };
@@ -108,7 +110,13 @@
 
           # Used to run commands and edit files in this repo
           default = pkgs.mkShell {
-            buildInputs = with pkgs; [ git stylua nixfmt shfmt shellcheck ];
+            buildInputs = with pkgs; [
+              git
+              stylua
+              nixfmt-classic
+              shfmt
+              shellcheck
+            ];
           };
 
         });

@@ -66,7 +66,7 @@
                    color: #CDD6F4;
                  }
            #workspaces button.active {
-                   background-color: #89b4fa
+                   background-color: #89b4fa;
                    color: #24273A;
                  }
            #workspaces button.urgent {

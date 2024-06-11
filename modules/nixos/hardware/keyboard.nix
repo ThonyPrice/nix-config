@@ -5,8 +5,8 @@
     services.xserver = {
 
       # Configure keymap in X11
-      layout = "se";
-      xkbVariant = "mac";
+      xkb.layout = "se";
+      xkb.variant = "mac";
 
       # Keyboard responsiveness
       autoRepeatDelay = 250;

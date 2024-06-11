@@ -12,11 +12,11 @@
         location = "center";
         font = "Fira Code Font 11";
         package = pkgs.rofi-wayland;
-        plugins = [ pkgs.rofi-calc pkgs.rofi-emoji ];
+        # plugins = [ pkgs.rofi-calc pkgs.rofi-emoji ];
         extraConfig = {
           show-icons = true;
           kb-cancel = "Escape,Super+space";
-          modi = "window,run,ssh,emoji,calc";
+          modi = "window,run,ssh";
           sort = true;
         };
         theme = let

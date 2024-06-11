@@ -96,7 +96,13 @@
                 user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
               '';
               userChrome = ''
-                # css
+                /* global font */
+                * {
+                  font-size: 9pt !important;
+                }
+                #root {
+                  font-size: 75% !important
+                }
                 /* hides the native tabs */
                 #TabsToolbar {
                   visibility: collapse;
