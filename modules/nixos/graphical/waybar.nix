@@ -12,6 +12,13 @@
     '';
 
     home-manager.users.${config.user} = {
+
+      # SwayOSd
+      services.swayosd = { enable = true; };
+      # SwayOSD is broken, the server is not started by the enable attribute
+      # Use this alias to run server until changing to another volume/brighness/capslock setup
+      programs.zsh.shellAliases = { sws = "nohup swayosd-server &"; };
+
       # Waybar
       programs.waybar = {
         enable = true;
