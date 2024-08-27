@@ -9,21 +9,19 @@ inputs.nixpkgs.lib.nixosSystem {
     ../../modules/common
     ../../modules/nixos
     (globals // rec {
-       user = "thony";
-       gitName = "thonyprice";
-       gitEmail = "thony.price@gmail.com";
+      user = "thony";
+      gitName = "thonyprice";
+      gitEmail = "thony.price@gmail.com";
     })
     inputs.home-manager.nixosModules.home-manager
     {
-      nixpkgs.overlays = [
-        inputs.emacs-overlay.overlay
-      ] ++ overlays;
+      nixpkgs.overlays = [ inputs.emacs-overlay.overlay ] ++ overlays;
       networking.hostName = "toto";
 
       # Wayland/Hyprland
       programs.hyprland = {
         enable = true;
-         package = inputs.hyprland.packages.x86_64-linux.hyprland;
+        package = inputs.hyprland.packages.x86_64-linux.hyprland;
       };
 
       # identityFile = "/Users/thony/.ssh/id_ed25519";
@@ -35,6 +33,9 @@ inputs.nixpkgs.lib.nixosSystem {
       kitty.enable = true;
       slack.enable = true;
       spotify.enable = true;
+
+      # Graphical
+      hyprpaper.enable = true;
 
       # Editors
       emacs.enable = true;

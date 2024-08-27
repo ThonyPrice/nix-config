@@ -103,7 +103,7 @@
           color15 = "#A5ADCB";
 
           font_family = "JetBrainsMono Nerd Font";
-          font_size = 14;
+          font_size = 9;
           adjust_line_height = "100%";
 
           cursor_blink_interval = 0;
@@ -119,8 +119,10 @@
           tab_bar_style = "separator";
           tab_bar_min_tabs = 2;
           tab_separator = "";
-          tab_title_template = "{fmt.fg._5b6078}{fmt.bg._24273A}{fmt.fg._abb2bf}{fmt.bg._5b6078} {title.split()[0]} {fmt.fg._5b6078}{fmt.bg._24273A} ";
-          active_tab_title_template = "{fmt.fg._a6da95}{fmt.bg._24273A}{fmt.fg._24273A}{fmt.bg._a6da95} {title.split()[0]} {fmt.fg._a6da95}{fmt.bg._24273A} ";
+          tab_title_template =
+            "{fmt.fg._5b6078}{fmt.bg._24273A}{fmt.fg._abb2bf}{fmt.bg._5b6078} {title.split()[0]} {fmt.fg._5b6078}{fmt.bg._24273A} ";
+          active_tab_title_template =
+            "{fmt.fg._a6da95}{fmt.bg._24273A}{fmt.fg._24273A}{fmt.bg._a6da95} {title.split()[0]} {fmt.fg._a6da95}{fmt.bg._24273A} ";
         };
       };
     };

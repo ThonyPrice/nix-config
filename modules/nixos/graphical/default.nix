@@ -5,6 +5,7 @@
     ./fonts.nix
     ./rofi.nix
     ./utils.nix
+    ./hyprpaper.nix
     ./waybar.nix
   ];
 

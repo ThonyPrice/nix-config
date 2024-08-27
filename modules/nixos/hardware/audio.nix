@@ -1,11 +1,8 @@
 { config, pkgs, lib, ... }:
 
-
 {
 
   config = lib.mkIf (pkgs.stdenv.isLinux && config.gui.enable) {
-
-    sound.enable = true;
 
     hardware.pulseaudio.enable = false;
     security.rtkit.enable = true;
@@ -29,9 +26,10 @@
     programs.noisetorch.enable = true;
 
     # These aren't necessary, but present a helpful GUI
-    environment.systemPackages = with pkgs; [
-      pamixer # Audio control
-    ];
+    environment.systemPackages = with pkgs;
+      [
+        pamixer # Audio control
+      ];
 
   };
 

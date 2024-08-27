@@ -12,11 +12,11 @@
       enable = true;
       autocd = false;
       enableCompletion = true;
-      enableAutosuggestions = true;
+      autosuggestion.enable = true;
       syntaxHighlighting.enable = true;
       shellAliases = {
         k = "kubectl";
-        l = "eza --color=auto -Fla";
+        l = "eza --color=auto -la";
         v = "nvim";
         vim = "nvim";
         gauth = "gcloud auth login && gcloud auth application-default login";

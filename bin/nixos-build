@@ -8,6 +8,8 @@ CLEAR='\033[0m'
 
 SYSTEM=$(hostname -s)
 
+export NIXPKGS_ALLOW_UNFREE=1
+
 sudo echo
 echo -e "${GREEN}Starting...${CLEAR}"
 
