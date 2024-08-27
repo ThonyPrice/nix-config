@@ -1,6 +1,6 @@
 { config, pkgs, lib, inputs, ... }:
 
-let spicePkgs = inputs.spicetify-nix.packages.${pkgs.system}.default;
+let spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.system};
 
 in {
 
@@ -9,10 +9,10 @@ in {
 
       home-manager.users.${config.user} = {
 
-        imports = [ inputs.spicetify-nix.homeManagerModule ];
+        imports = [ inputs.spicetify-nix.homeManagerModules.default ];
 
         programs.spicetify = {
-          enable = false;
+          enable = true;
           theme = spicePkgs.themes.catppuccin;
           colorScheme = "macchiato";
 

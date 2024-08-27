@@ -41,7 +41,7 @@
     emacs-overlay.url = "github:nix-community/emacs-overlay";
 
     # Spice up Spotify client
-    spicetify-nix.url = "github:the-argus/spicetify-nix";
+    spicetify-nix.url = "github:Gerg-L/spicetify-nix";
 
     # Used to generate NixOS images for other platforms
     nixos-generators = {
