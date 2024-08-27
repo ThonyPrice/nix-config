@@ -6,7 +6,7 @@
 
     home-manager.users.${config.user} = {
 
-      home.packages = with pkgs; [ go ];
+      home.packages = with pkgs; [ go_1_21 pre-commit protobuf protoc-gen-go ];
 
     };
 

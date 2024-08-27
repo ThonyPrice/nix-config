@@ -12,6 +12,10 @@
         shift + cmd - return : ${pkgs.kitty}/bin/kitty --single-instance -d ~
         shift + cmd - m : /Applications/Slack.app/Contents/MacOS/Slack
         shift + cmd - u : launchctl stop org.nixos.yabai
+        shift + cmd - g : \
+                yabai -m signal --add label=float_next_window_created event=window_created action='yabai -m signal --remove float_next_window_created; yabai -m signal --remove float_next_application_launched; yabai -m window $YABAI_WINDOW_ID --toggle float; yabai -m window $YABAI_WINDOW_ID --grid 4:4:1:1:2:2' ; \
+                yabai -m signal --add label=float_next_application_launched event=application_launched action='yabai -m signal --remove float_next_window_created; yabai -m signal --remove float_next_application_launched; yabai -m query --windows | jq -r ".[] | select(.pid == $YABAI_PROCESS_ID).id" | xargs -I{} yabai -m window {} --toggle float; yabai -m window $YABAI_WINDOW_ID --grid 4:4:1:1:2:2' ; \
+                ${pkgs.kitty}/bin/kitty --hold zsh -c 'TERM=xterm-emacs emacsclient -t -F "((name . \"capture\"))" -e "(menu-bar-mode 1)" -e "(my/org-capture-frame)"'
 
         # focus window
         alt - h : yabai -m window --focus west
@@ -116,8 +120,13 @@
 
         # float / unfloat window and center on screen
         alt - t : yabai -m window --toggle float;\
-                  yabai -m window --grid 4:4:1:1:2:2;\
+                  yabai -m window --grid 5:5:1:1:3:3;\
                   sketchybar --trigger window_focus
+
+        # toggle sticky, topmost and resize to picture-in-picture size
+        alt - p : yabai -m window --toggle sticky;\
+                yabai -m window --toggle topmost;\
+                yabai -m window --grid 2:2:4:0:1:1
 
         # change layout of desktop
         ctrl + alt - t : yabai -m space --layout bsp
@@ -137,41 +146,3 @@
 
 }
 
-# { config, pkgs, lib, ... }: {
-# 
-#   home-manager.users.${config.user} = lib.mkIf pkgs.stdenv.isDarwin {
-# 
-#     home.packages = with pkgs; [ skhd ];
-# 
-#     home.file.skhd = {
-#       source = ./skhdrc;
-#       target = "${config.homePath}/.config/skhd/skhdrc";
-#       executable = false;
-#     };
-# 
-#     # Skhd on startup workaround
-#     # https://github.com/noctuid/dotfiles/blob/e6d93d17d3723dad06c8277b7565035df836d938/nix/darwin/default.nix#L292
-#     launchd.agents.skhd = {
-#       enable = true;
-#       config = {
-#         ProgramArguments = [
-#           "${pkgs.skhd}/bin/skhd"
-#           "-c"
-#           "${config.homePath}/.config/skhd/skhdrc"
-#         ];
-#         KeepAlive = true;
-#         RunAtLoad = true;
-#         ProcessType = "Interactive";
-#         EnvironmentVariables = {
-#           PATH = pkgs.lib.concatStringsSep ":" [
-#             "${config.homePath}/.nix-profile/bin"
-#           ];
-#         };
-#         StandardOutPath = "/tmp/skhd.log";
-#         StandardErrorPath = "/tmp/skhd.log";
-#       };
-#     };
-# 
-#   };
-# 
-# }

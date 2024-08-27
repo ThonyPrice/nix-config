@@ -22,6 +22,7 @@ in {
         bc # Calculator
         btop # Show system processes
         # cloud-sql-proxy # GCP proxy CLI
+        cbonsai # Shell bonsai, why not
         curl # Url fetcher
         dig # DNS lookup
         killall # Force quit
@@ -58,7 +59,7 @@ in {
           };
         };
         config = {
-          theme = "catppuccin-macchiato";
+          theme = "catppuccin";
           pager = "less -R"; # Don't auto-exit if one screen
         };
 

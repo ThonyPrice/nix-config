@@ -123,8 +123,8 @@
 
         };
 
-        # Disable "Are you sure you want to open" dialog
-        LaunchServices.LSQuarantine = false;
+        # Set "Are you sure you want to open" dialog
+        LaunchServices.LSQuarantine = true;
 
         # Where to save screenshots
         screencapture.location = "~/Desktop";
