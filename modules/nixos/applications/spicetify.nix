@@ -12,7 +12,7 @@ in {
         imports = [ inputs.spicetify-nix.homeManagerModule ];
 
         programs.spicetify = {
-          enable = true;
+          enable = false;
           theme = spicePkgs.themes.catppuccin;
           colorScheme = "macchiato";
 
