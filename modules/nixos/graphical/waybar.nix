@@ -15,9 +15,6 @@
 
       # SwayOSd
       services.swayosd = { enable = true; };
-      # SwayOSD is broken, the server is not started by the enable attribute
-      # Use this alias to run server until changing to another volume/brighness/capslock setup
-      programs.zsh.shellAliases = { sws = "nohup swayosd-server &"; };
 
       # Waybar
       programs.waybar = {
@@ -30,127 +27,108 @@
           target = "graphical-session.target";
         };
         style = ''
-                * {
-                   font-family: "JetBrainsMono Nerd Font";
-                   font-size: 9pt;
-                   font-weight: bold;
-                   border-radius: 0px;
-                   transition-property: background-color;
-                   transition-duration: 0.3s;
+          * {
+            font-family: "JetBrainsMono Nerd Font";
+            font-size: 8pt;
+            font-weight: bold;
+            border-radius: 0px;
+            min-height: 0px;
+            transition-property: background-color;
+            transition-duration: 0.3s;
+          }
+          @keyframes blink_red {
+            to {
+              background-color: rgb(242, 143, 173);
+              color: rgb(26, 24, 38);
+            }
+          }
+          .warning, .critical, .urgent {
+            animation-name: blink_red;
+            animation-duration: 1s;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+          }
+          window#waybar {
+            background-color: transparent;
+          }
+          window > box {
+            margin-left: 0px;
+            margin-right: 0px;
+            margin-top: 0px;
+            background-color: #24273A;
+          }
+          #workspaces {
+            padding-left: 0px;
+            padding-right: 4px;
+            color: #24273A;
+          }
+          #workspaces button {
+            padding-top: 2px;
+            padding-bottom: 2px;
+            padding-left: 4px;
+            padding-right: 4px;
+            color: #CDD6F4;
+          }
+          #workspaces button.active {
+            background-color: #89b4fa;
+            color: #24273A;
+          }
+          #workspaces button.urgent {
+            color: #24273A;
+          }
+          #custom-launcher {
+            font-size: 14px;
+            padding-left: 12px;
+            color: #74C7EC;
+          }
+          #mode, #clock, #memory, #temperature,#cpu,#mpd, #custom-wall, #temperature, #backlight, #pulseaudio, #network, #battery, #custom-powermenu, #custom-cava-internal {
+            padding-left: 4px;
+            padding-right: 4px;
+          }
+          #mode {
+            margin-left: 10px;
+            background-color: rgb(248, 189, 150);
+            color: rgb(26, 24, 38);
+          }
+          #memory {
+            color: #cdd6f4;
                  }
-                 @keyframes blink_red {
-                   to {
-                     background-color: rgb(242, 143, 173);
-                     color: rgb(26, 24, 38);
-                   }
-                 }
-                 .warning, .critical, .urgent {
-                   animation-name: blink_red;
-                   animation-duration: 1s;
-                   animation-timing-function: linear;
-                   animation-iteration-count: infinite;
-                   animation-direction: alternate;
-                 }
-                 window#waybar {
-                   background-color: transparent;
-                 }
-                 window > box {
-                   margin-left: 0px;
-                   margin-right: 0px;
-                   margin-top: 0px;
-                   background-color: #24273A;
-                 }
-           #workspaces {
-                   padding-left: 0px;
-                   padding-right: 4px;
-                   color: #24273A;
-                 }
-           #workspaces button {
-                   padding-top: 3px;
-                   padding-bottom: 3px;
-                   padding-left: 6px;
-                   padding-right: 6px;
-                   color: #CDD6F4;
-                 }
-           #workspaces button.active {
-                   background-color: #89b4fa;
-                   color: #24273A;
-                 }
-           #workspaces button.urgent {
-                   color: #24273A;
-                 }
-           #custom-launcher {
-                   font-size: 20px;
-                   padding-left: 8px;
-                   padding-right: 6px;
-                   color: #74C7EC;
-                 }
-           #mode, #clock, #memory, #temperature,#cpu,#mpd, #custom-wall, #temperature, #backlight, #pulseaudio, #network, #battery, #custom-powermenu, #custom-cava-internal {
-                   padding-left: 10px;
-                   padding-right: 10px;
-                 }
-                 /* #mode { */
-                 /* 	margin-left: 10px; */
-                 /* 	background-color: rgb(248, 189, 150); */
-                 /*     color: rgb(26, 24, 38); */
-                 /* } */
-           #memory {
-                   color: #8bd5ca
-                 }
-           #cpu {
-                   color: #8bd5ca
-                 }
-           #clock {
-                   color: #cdd6f4
-                 }
-          /* #idle_inhibitor {
-                   color: rgb(221, 182, 242);
-                 }*/
-           #custom-wall {
-                   color: rgb(221, 182, 242);
-              }
-           #temperature {
-                   color: rgb(150, 205, 251);
-                 }
-           #backlight {
-                   color: rgb(248, 189, 150);
-                 }
-           #pulseaudio {
-                   color: #f0c6c6
-                 }
-           #network {
-                   color: #a6e3a1
-                 }
-
-           #network.disconnected {
-                   color: #ed8796
-                 }
-           #battery.charging, #battery.full, #battery.discharging {
-                   color: #eed49f
-                 }
-           #battery.critical:not(.charging) {
-                   color: #ed8796
-                 }
-           #custom-powermenu {
-                   color: #ed8796
-                 }
-           #tray {
-                   padding-right: 8px;
-                   padding-left: 10px;
-                 }
-           #mpd.paused {
-                   color: #414868;
-                   font-style: italic;
-                 }
-           #mpd.stopped {
-                   background: transparent;
-                 }
-           #mpd {
-                   color: #c0caf5;
-                 }
-           #custom-cava-internal{
-                   font-family: "Hack Nerd Font" ;
-                 }
+          #cpu {
+            color: #cdd6f4;
+          }
+          #clock {
+            color: #cdd6f4;
+            padding-right: 12px;
+          }
+          #pulseaudio {
+            color: #cdd6f4;
+          }
+          #network {
+            color: #cdd6f4;
+          }
+          #network.disconnected {
+            color: #ed8796;
+          }
+          #battery.charging {
+            color: #a6da95;
+          }
+          #battery.full, #battery.discharging {
+            color: #cdd6f4;
+          }
+          #battery.critical:not(.charging) {
+            color: #ed8796;
+          }
+          #custom-powermenu {
+            color: #ed8796;
+          }
+          #tray {
+            padding-right: 4px;
+            padding-left: 4px;
+          }
+          #custom-cava-internal{
+            font-family: "Hack Nerd Font" ;
+          }
         '';
         settings = [{
           "layer" = "top";
@@ -158,62 +136,30 @@
           modules-left = [
             "custom/launcher"
             "hyprland/workspaces"
-            # "temperature"
             # "idle_inhibitor"
-            # "custom/wall"
-            # "mpd"
             # "custom/cava-internal"
           ];
-          modules-center = [ "clock" ];
           modules-right = [
-            "pulseaudio"
-            # "backlight"
             # "memory"
             # "cpu"
-            "network"
-            "battery"
-            "custom/powermenu"
             "tray"
+            "pulseaudio"
+            "battery"
+            "network"
+            "clock"
           ];
           "custom/launcher" = {
             "format" = " ";
             "on-click" = "pkill rofi || ~/.config/rofi/launcher.sh";
             "tooltip" = false;
           };
-          "custom/wall" = {
-            "on-click" = "wallpaper_random";
-            "on-click-middle" = "default_wall";
-            "on-click-right" =
-              "killall dynamic_wallpaper || dynamic_wallpaper &";
-            "format" = " 󰠖 ";
-            "tooltip" = false;
-          };
-          "custom/cava-internal" = {
-            "exec" = "sleep 1s && cava-internal";
-            "tooltip" = false;
-          };
           "hyprland/workspaces" = {
             "format" = "{name}";
             "on-click" = "activate";
           };
-          "idle_inhibitor" = {
-            "format" = "{icon}";
-            "format-icons" = {
-              "activated" = "";
-              "deactivated" = "";
-            };
-            "tooltip" = false;
-          };
-          "backlight" = {
-            "device" = "intel_backlight";
-            "on-scroll-up" = "light -A 5";
-            "on-scroll-down" = "light -U 5";
-            "format" = "{icon} {percent}%";
-            "format-icons" = [ "󰃝" "󰃞" "󰃟" "󰃠" ];
-          };
           "pulseaudio" = {
             "scroll-step" = 1;
-            "format" = "{icon} {volume}%";
+            "format" = "{icon}  {volume}%";
             "format-muted" = "󰖁 Muted";
             "format-icons" = { "default" = [ "" "" "" ]; };
             "on-click" = "pamixer -t";
@@ -248,43 +194,17 @@
             "interval" = 1;
             "format" = "󰻠 {usage}%";
           };
-          "mpd" = {
-            "max-length" = 25;
-            "format" = "<span foreground='#bb9af7'></span> {title}";
-            "format-paused" = " {title}";
-            "format-stopped" = "<span foreground='#bb9af7'></span>";
-            "format-disconnected" = "";
-            "on-click" = "mpc --quiet toggle";
-            "on-click-right" = "mpc update; mpc ls | mpc add";
-            "on-click-middle" = "kitty --class='ncmpcpp' ncmpcpp ";
-            "on-scroll-up" = "mpc --quiet prev";
-            "on-scroll-down" = "mpc --quiet next";
-            "smooth-scrolling-threshold" = 5;
-            "tooltip-format" =
-              "{title} - {artist} ({elapsedTime:%M:%S}/{totalTime:%H:%M:%S})";
-          };
           "network" = {
-            "format-disconnected" = "󰯡 Disconnected";
-            "format-ethernet" = "󰀂 {ifname} ({ipaddr})";
-            "format-linked" = "󰖪 {essid} (No IP)";
-            "format-wifi" = "󰖩 {essid}";
+            "format-disconnected" = "󰯡";
+            "format-ethernet" = "󰀂";
+            "format-linked" = "󰖪";
+            "format-wifi" = "󰖩";
             "interval" = 1;
             "tooltip" = false;
           };
-          "temperature" = {
-            # "hwmon-path"= "${env:HWMON_PATH}";
-            #"critical-threshold"= 80;
-            "tooltip" = false;
-            "format" = " {temperatureC}°C";
-          };
-          "custom/powermenu" = {
-            "format" = "";
-            "on-click" = "pkill rofi || ~/.config/rofi/powermenu.sh";
-            "tooltip" = false;
-          };
           "tray" = {
-            "icon-size" = 15;
-            "spacing" = 5;
+            "icon-size" = 12;
+            "spacing" = 4;
           };
         }];
       };

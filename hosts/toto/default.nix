@@ -40,6 +40,7 @@ inputs.nixpkgs.lib.nixosSystem {
       # Editors
       emacs.enable = true;
       neovim.enable = true;
+      vscode.enable = true;
 
       # Programming
       go.enable = true;
