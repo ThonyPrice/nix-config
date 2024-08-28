@@ -13,13 +13,23 @@
     '';
   };
 
+  # Prep SDDM theme
+  environment.systemPackages = [
+    (pkgs.catppuccin-sddm.override {
+      flavor = "macchiato";
+      font = "Noto Sans";
+      fontSize = "16";
+      # background = "${./wallpaper.png}";
+      loginBackground = true;
+    })
+  ];
+
   # Enable the X11 windowing system.
-  services.xserver = {
+  services.displayManager.sddm = {
     enable = true;
-    displayManager.gdm = {
-      enable = true;
-      wayland = true;
-    };
+    wayland.enable = true;
+    theme = "catppuccin-macchiato";
+    package = pkgs.kdePackages.sddm;
   };
 
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
