@@ -6,7 +6,7 @@
     launchd.user.agents.emacs.path = [ config.environment.systemPath ];
     launchd.user.agents.emacs.serviceConfig = {
       KeepAlive = true;
-      ProgramArguments = [ "${pkgs.emacs-unstable}/bin/emacs" "--daemon" ];
+      ProgramArguments = [ "${pkgs.emacs}/bin/emacs" "--daemon" ];
       StandardErrorPath = "/tmp/emacs.log";
       StandardOutPath = "/tmp/emacs.log";
     };

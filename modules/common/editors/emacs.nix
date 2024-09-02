@@ -6,8 +6,8 @@
 
     environment.systemPackages = with pkgs;
       [
-        # Installs Emacs 28 + native-comp
-        pkgs.emacs-unstable
+        # Installs Emacs 29 + native-comp
+        pkgs.emacs
       ];
 
     home-manager.users.${config.user} = {
