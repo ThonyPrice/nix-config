@@ -15,9 +15,9 @@ inputs.darwin.lib.darwinSystem {
     })
     inputs.home-manager.darwinModules.home-manager
     {
-      nixpkgs.overlays =
-        [ inputs.firefox-darwin.overlay inputs.emacs-overlay.overlay ]
-        ++ overlays;
+      nixpkgs.overlays = [ inputs.firefox-darwin.overlay ];
+      # [ inputs.firefox-darwin.overlay inputs.emacs-overlay.overlay ]
+      # ++ overlays;
       networking.hostName = "Thonys-MBP";
       # identityFile = "/Users/thony/.ssh/id_ed25519";
       gui.enable = true;
