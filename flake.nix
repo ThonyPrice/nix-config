@@ -91,9 +91,11 @@
       # Contains my full Mac system builds, including home-manager
       # darwin-rebuild switch --flake .#pluto
       darwinConfigurations = {
-        # MDM Managed, hence the funky hostname
-        MAC-NL6CFNNHRP =
-          import ./hosts/pluto { inherit inputs globals overlays; };
+        # MedTech client
+        Thonys-MBP = import ./hosts/laika { inherit inputs globals overlays; };
+        # FinTech client
+        # MAC-NL6CFNNHRP =
+        # import ./hosts/pluto { inherit inputs globals overlays; };
       };
 
       # For quickly applying home-manager settings with:
