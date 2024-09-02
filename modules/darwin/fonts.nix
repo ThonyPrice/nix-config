@@ -9,7 +9,7 @@
       home.packages = with pkgs;
         [
           (nerdfonts.override {
-            fonts = [ "VictorMono" "JetBrainsMono" "Hack" "FiraCode" ];
+            fonts = [ "VictorMono" "JetBrainsMono" "Hack" "FiraCode" "NerdFontsSymbolsOnly" ];
           })
         ];
 
