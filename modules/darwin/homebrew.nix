@@ -26,8 +26,6 @@
       };
       brewPrefix = "/opt/homebrew/bin";
       taps = [
-        "homebrew/cask" # Required for casks
-        "homebrew/cask-fonts" # For fonts
         "homebrew/services" # Nice to have?
       ];
       brews = [ ];
