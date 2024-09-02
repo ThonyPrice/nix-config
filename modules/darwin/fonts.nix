@@ -1,13 +1,19 @@
 { config, pkgs, lib, ... }: {
 
-  home-manager.users.${config.user} = lib.mkIf pkgs.stdenv.isDarwin {
+  config = lib.mkIf pkgs.stdenv.isDarwin {
 
-    home.packages = with pkgs;
-      [
-        (nerdfonts.override {
-          fonts = [ "VictorMono" "JetBrainsMono" "Hack" "FiraCode" ];
-        })
-      ];
+    fonts.packages = [ pkgs.fira-code-nerdfont ];
+
+    home-manager.users.${config.user} = lib.mkIf pkgs.stdenv.isDarwin {
+
+      home.packages = with pkgs;
+        [
+          (nerdfonts.override {
+            fonts = [ "VictorMono" "JetBrainsMono" "Hack" "FiraCode" ];
+          })
+        ];
+
+    };
 
   };
 
