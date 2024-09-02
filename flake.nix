@@ -92,7 +92,7 @@
       # darwin-rebuild switch --flake .#pluto
       darwinConfigurations = {
         # MDM Managed, hence the funky hostname
-        MAC-NL6CFNNHRP =
+	Thonys-MacBook-Pro.system =
           import ./hosts/pluto { inherit inputs globals overlays; };
       };
 
