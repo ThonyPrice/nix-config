@@ -30,7 +30,7 @@ inputs.darwin.lib.darwinSystem {
       raycast.enable = true;
 
       # Editors
-      emacs.enable = true;
+      emacs.enable = false;
       neovim.enable = true;
       vscode.enable = true;
 
