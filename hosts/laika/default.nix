@@ -15,7 +15,9 @@ inputs.darwin.lib.darwinSystem {
     })
     inputs.home-manager.darwinModules.home-manager
     {
-      nixpkgs.overlays = [ inputs.firefox-darwin.overlay ];
+      nixpkgs.overlays =
+        [ inputs.firefox-darwin.overlay inputs.emacs-overlay.overlay ]
+        ++ overlays;
       networking.hostName = "Thonys-MBP";
       # identityFile = "/Users/thony/.ssh/id_ed25519";
       gui.enable = true;
@@ -28,7 +30,7 @@ inputs.darwin.lib.darwinSystem {
       raycast.enable = true;
 
       # Editors
-      emacs.enable = false;
+      emacs.enable = true;
       neovim.enable = true;
       vscode.enable = true;
 

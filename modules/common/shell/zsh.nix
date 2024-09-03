@@ -27,7 +27,7 @@
           . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
         fi
         # end nix
-        export PATH="${pkgs.emacs}/bin:$PATH"
+        export PATH="${pkgs.emacs-unstable}/bin:$PATH"
         export PATH="${config.homePath}/.emacs.d/bin:$PATH"
         export PATH="${config.homePath}/git/nix-config/bin:$PATH"
         export PATH="${config.homePath}/.local/bin:$PATH"

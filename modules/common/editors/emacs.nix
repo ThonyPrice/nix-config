@@ -7,7 +7,7 @@
     environment.systemPackages = with pkgs;
       [
         # Installs Emacs 29 + native-comp
-        pkgs.emacs
+        pkgs.emacs-unstable
       ];
 
     home-manager.users.${config.user} = {
@@ -55,9 +55,9 @@
     };
 
     # Compile custom terminfo
-    system.activationScripts.postUserActivation.text = ''
-      ${pkgs.ncurses5}/bin/tic -x -o ~/.terminfo ${config.homePath}/.config/terminfo/xterm-emacs.ti
-    '';
+    # system.activationScripts.postUserActivation.text = ''
+      # ${pkgs.ncurses5}/bin/tic -x -o ~/.terminfo ${config.homePath}/.config/terminfo/xterm-emacs.ti
+    # '';
 
   };
 
