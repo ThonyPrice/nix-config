@@ -6,6 +6,8 @@
 
     home.packages = with pkgs; [
       # visidata # CSV inspector
+      _1password
+      zx
       coreutils
       dockutil
       ansible
