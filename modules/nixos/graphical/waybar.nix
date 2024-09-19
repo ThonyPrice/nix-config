@@ -64,21 +64,22 @@
             color: #24273A;
           }
           #workspaces button {
-            padding-top: 2px;
-            padding-bottom: 2px;
-            padding-left: 4px;
-            padding-right: 4px;
-            color: #CDD6F4;
+            padding: 0 0.5em;
+            /* color: #CDD6F4; */
+            color:  #ff0000;
           }
+
           #workspaces button.active {
-            background-color: #89b4fa;
-            color: #24273A;
+            /* background-color: #89b4fa; */
+            /* color: #24273A; */
+            color: #89B4FA;
           }
+
           #workspaces button.urgent {
             color: #24273A;
           }
           #custom-launcher {
-            font-size: 14px;
+            font-size: 16px;
             padding-left: 12px;
             color: #74C7EC;
           }
@@ -156,6 +157,16 @@
           "hyprland/workspaces" = {
             "format" = "{name}";
             "on-click" = "activate";
+            "persistent-workspaces" = {
+              "*" = 5; # 5 workspaces by default on every monitor
+            };
+            "format-icons" = {
+              "1" = "";
+              "2" = "";
+              "3" = "";
+              "4" = "󰒱";
+              "5" = "";
+            };
           };
           "pulseaudio" = {
             "scroll-step" = 1;
