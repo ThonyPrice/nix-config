@@ -9,11 +9,11 @@
     ./networking.nix
     ./nixpkgs.nix
     ./sketchybar
-    ./skhd
+    #./skhd
     ./system.nix
     ./user.nix
     ./utilities.nix
-    ./yabai
+    #./yabai
     ./zsh.nix
   ];
 

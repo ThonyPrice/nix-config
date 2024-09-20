@@ -27,6 +27,7 @@
       brewPrefix = "/opt/homebrew/bin";
       taps = [
         "homebrew/services" # Nice to have?
+        "nikitabobko/tap" # Tap for aerospace
       ];
       brews = [ ];
       casks = [
@@ -37,6 +38,8 @@
         "postico" # PostgreSQL DB Client
         "raycast" # Rofi for MacOS
         "sf-symbols" # Font for sketchybar
+        "remote-desktop-manager" # Instead of RDP
+        "nikitabobko/tap/aerospace" # i3 for MacOS
       ];
     };
 
