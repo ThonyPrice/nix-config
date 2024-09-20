@@ -26,8 +26,6 @@
       };
       brewPrefix = "/opt/homebrew/bin";
       taps = [
-        "homebrew/cask" # Required for casks
-        "homebrew/cask-fonts" # For fonts
         "homebrew/services" # Nice to have?
       ];
       brews = [ ];
@@ -36,9 +34,8 @@
         "appcleaner" # Uninstall helper
         "balenaetcher" # Flash OS images
         "dropbox" # Used for Orgzly syncs
-        "launchcontrol" # Launchctl GUI
-        "pgadmin4" # Admin/dev platform for PostgreSQL
-        "raycast" # Application launcher
+        "postico" # PostgreSQL DB Client
+        "raycast" # Rofi for MacOS
         "sf-symbols" # Font for sketchybar
       ];
     };

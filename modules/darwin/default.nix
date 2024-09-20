@@ -1,6 +1,7 @@
 { ... }: {
 
   imports = [
+    ./arc.nix
     ./emacs.nix
     ./fonts.nix
     ./homebrew.nix

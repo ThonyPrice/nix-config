@@ -12,7 +12,7 @@
         python311Packages.pip # Python package manager
         poetry # Python dependency manager
         black # Python formatter
-        nodePackages.pyright # Python language server
+        pyright # Python language server
         openssl
       ];
 

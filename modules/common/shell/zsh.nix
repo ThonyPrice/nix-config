@@ -33,7 +33,7 @@
         export PATH="${config.homePath}/.local/bin:$PATH"
 
         # Add relevant Homebrew directories to PATH
-        if [ -x "$(command -v brew)" ]; then
+        if [ -d /opt/homebrew/bin ]; then
           eval "$(/opt/homebrew/bin/brew shellenv)"
         fi
 
