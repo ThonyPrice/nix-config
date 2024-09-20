@@ -104,6 +104,8 @@
         # template = nixosConfigurations.template.config.home-manager.users.${globals.user}.home;
         pluto =
           darwinConfigurations.pluto.config.home-manager.users."thony".home;
+        laika =
+          darwinConfigurations.Thonys-MBP.config.home-manager.users."thony".home;
       };
 
       # Development environments
