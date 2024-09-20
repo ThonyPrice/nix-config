@@ -12,6 +12,7 @@
       dockutil
       ansible
       vault
+      samba
       (writeShellApplication {
         name = "ocr";
         runtimeInputs = [ tesseract ];
