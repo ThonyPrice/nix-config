@@ -2,7 +2,7 @@
 
   imports = [
     ./arc.nix
-    ./aerospace.nix
+    ./aerospace
     ./emacs.nix
     ./fonts.nix
     ./homebrew.nix

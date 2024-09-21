@@ -11,7 +11,7 @@
 
       home.file.aerospace = {
         source = ./aerospace.toml;
-        target = "${config.homePath}/.config/aerospace/";
+        target = "${config.homePath}/.config/aerospace/aerospace.toml";
       };
 
     };
