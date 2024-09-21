@@ -21,6 +21,9 @@ inputs.darwin.lib.darwinSystem {
       networking.hostName = "Thonys-MBP";
       # identityFile = "/Users/thony/.ssh/id_ed25519";
       gui.enable = true;
+      aerospace.enable = true;
+      yabai.enable = false;
+      skhd.enable = false;
 
       # Applications
       kitty.enable = true;

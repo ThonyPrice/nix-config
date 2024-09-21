@@ -27,8 +27,12 @@
       brewPrefix = "/opt/homebrew/bin";
       taps = [
         "homebrew/services" # Nice to have?
-        "nikitabobko/tap" # Tap for aerospace
-      ];
+      ] ++ (if config.aerospace.enable then
+        [
+          "nikitabobko/tap" # Tap for aerospace
+        ]
+      else
+        [ ]);
       brews = [ ];
       casks = [
         "1password" # 1Password packaging on Nix is broken for macOS
@@ -39,8 +43,12 @@
         "raycast" # Rofi for MacOS
         "sf-symbols" # Font for sketchybar
         "remote-desktop-manager" # Instead of RDP
-        "nikitabobko/tap/aerospace" # i3 for MacOS
-      ];
+      ] ++ (if config.aerospace.enable then
+        [
+          "nikitabobko/tap/aerospace" # i3 for MacOS
+        ]
+      else
+        [ ]);
     };
 
   };

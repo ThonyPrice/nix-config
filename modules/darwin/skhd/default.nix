@@ -1,6 +1,8 @@
 { config, pkgs, lib, ... }: {
 
-  config = lib.mkIf pkgs.stdenv.isDarwin {
+  options.skhd.enable = lib.mkEnableOption "skhd hotkey daemon.";
+
+  config = lib.mkIf (pkgs.stdenv.isDarwin && config.skhd.enable) {
 
     services.skhd = {
 

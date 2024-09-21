@@ -1,6 +1,8 @@
 { config, pkgs, lib, ... }: {
 
-  config = lib.mkIf pkgs.stdenv.isDarwin {
+  options.yabai.enable = lib.mkEnableOption "Yabai twm";
+
+  config = lib.mkIf (pkgs.stdenv.isDarwin && config.yabai.enable) {
 
     # Setup Yabai tiling window manager
     services.yabai = {
