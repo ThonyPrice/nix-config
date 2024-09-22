@@ -20,8 +20,6 @@ get_icon() {
     esac
 }
 
-echo "Focused ws: ${FOCUSED_WORKSPACE}."
-
 icon=$(get_icon "$1")
 if [ "$1" = "$FOCUSED_WORKSPACE" ]; then
     sketchybar --set $NAME background.drawing=on icon="$icon" icon.color=$GREEN
