@@ -1,7 +1,7 @@
 #!/bin/sh
 
 
-SPACE_ICONS=("" "" "" "󰭻" "" "" "" "" "")
+SPACE_ICONS=("" "" "" "󰭻" "" "" "" "" "")
 
 sketchybar --add event aerospace_workspace_change
 

@@ -1,14 +1,30 @@
 #!/usr/bin/env bash
 
-# make sure it's executable with:
-# chmod +x ~/.config/sketchybar/plugins/aerospace.sh
+source "$HOME/.config/sketchybar/colors.sh"
+source "$HOME/.config/sketchybar/icons.sh"
 
-echo "Space: ${1}."
-echo "Focused ws: ${AEROSPACE_FOCUSED_WORKSPACE}."
-echo "Name: ${NAME}."
+get_icon() {
+    case "$1" in
+        1) echo "";;
+        2) echo "";;
+        3) echo "";;
+        4) echo "󰭻";;
+        5) echo "";;
+        6) echo "";;
+        7) echo "";;
+        8) echo "";;
+        9) echo "󰆼";;
+        A) echo "";;
+        M) echo "";;
+        *) echo "";;
+    esac
+}
 
+echo "Focused ws: ${FOCUSED_WORKSPACE}."
+
+icon=$(get_icon "$1")
 if [ "$1" = "$FOCUSED_WORKSPACE" ]; then
-    sketchybar --set $NAME background.drawing=on
+    sketchybar --set $NAME background.drawing=on icon="$icon" icon.color=$GREEN
 else
-    sketchybar --set $NAME background.drawing=off
+    sketchybar --set $NAME background.drawing=off icon="$icon" icon.color=$WHITE
 fi
