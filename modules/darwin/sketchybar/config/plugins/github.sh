@@ -15,7 +15,7 @@ update() {
 
   PREV_COUNT=$(sketchybar --query github.bell | jq -r .label.value)
   # For sound to play around with:
-  # afplay /System/Library/Sounds/Morse.aiff
+  afplay /System/Library/Sounds/Morse.aiff
 
   args+=(--remove '/github.notification\.*/')
 
@@ -32,7 +32,7 @@ update() {
 
     if [ "${repo}" = "" ] && [ "${title}" = "" ]; then
       repo="Note"
-      title="No new notifications"
+      title=" No new notifications"
     fi
     case "${type}" in
       "'Issue'") COLOR=$GREEN; ICON=$GIT_ISSUE; URL="$(gh api "$(echo "${url}" | sed -e "s/^'//" -e "s/'$//")" | jq .html_url)"

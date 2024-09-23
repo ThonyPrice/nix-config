@@ -1,7 +1,7 @@
 #!/bin/sh
 
 
-SPACE_ICONS=("" "" "" "󰭻" "" "" "" "" "")
+SPACE_ICONS=("" "" "" "󰭻" "" "" "" "" "")
 
 sketchybar --add event aerospace_workspace_change
 
@@ -13,8 +13,8 @@ for m in $(aerospace list-monitors | awk '{print $1}'); do
     space=(
       space="$sid"
       icon="${SPACE_ICONS[i-1]}"
-      icon.padding_left=10
-      icon.padding_right=10
+      icon.padding_left=8
+      icon.padding_right=8
       display=$m
       padding_left=2
       padding_right=2
