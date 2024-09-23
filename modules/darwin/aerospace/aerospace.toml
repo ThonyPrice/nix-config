@@ -56,7 +56,7 @@ inner.horizontal = 8
 inner.vertical =   8
 outer.left =       8
 outer.bottom =     8
-outer.top =        20
+outer.top = [{ monitor."HP Z27k G3" = 46 }, 20]
 outer.right =      8
 
 # 'main' binding mode declaration
