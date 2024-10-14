@@ -20,6 +20,8 @@
         v = "nvim";
         vim = "nvim";
         gauth = "gcloud auth login && gcloud auth application-default login";
+        # ssh = "kitty +kitten ssh";
+
       };
       initExtra = ''
         # nix
@@ -36,6 +38,9 @@
         if [ -d /opt/homebrew/bin ]; then
           eval "$(/opt/homebrew/bin/brew shellenv)"
         fi
+
+        # Set term variable, see https://wiki.archlinux.org/title/Kitty#Terminal_issues_with_SSH
+        [ "$TERM" = "xterm-kitty" ]
 
         # Add gcloud binary if installed
         if [ -d ${config.homePath}/google-cloud-sdk ]; then

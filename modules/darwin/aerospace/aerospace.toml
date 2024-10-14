@@ -56,7 +56,10 @@ inner.horizontal = 8
 inner.vertical =   8
 outer.left =       8
 outer.bottom =     8
-outer.top = [{ monitor."HP Z27k G3" = 48 }, 20]
+outer.top = [
+  { monitor."Built-in Retina Display" = 20 },
+  48
+]
 outer.right =      8
 
 # 'main' binding mode declaration
@@ -64,7 +67,7 @@ outer.right =      8
 [mode.main.binding]
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#exec-and-forget
-alt-shift-enter = 'exec-and-forget /Users/thony/.nix-profile/bin/kitty --single-instance -d ~'
+cmd-shift-enter = 'exec-and-forget /Users/thony/.nix-profile/bin/kitty --single-instance -d ~'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#layout
 alt-x = 'layout tiles horizontal vertical'

@@ -8,6 +8,7 @@ inputs.darwin.lib.darwinSystem {
   modules = [
     ../../modules/common
     ../../modules/darwin
+    ./laika.nix
     (globals // rec {
       user = "thony";
       gitName = "thony-abclabs";

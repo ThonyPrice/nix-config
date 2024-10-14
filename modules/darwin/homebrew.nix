@@ -43,6 +43,7 @@
         "raycast" # Rofi for MacOS
         "sf-symbols" # Font for sketchybar
         "remote-desktop-manager" # Instead of RDP
+        "zen-browser"
       ] ++ (if config.aerospace.enable then
         [
           "nikitabobko/tap/aerospace" # i3 for MacOS
