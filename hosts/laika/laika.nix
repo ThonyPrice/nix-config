@@ -11,6 +11,11 @@
       REOS_ENABLE_SHUTDOWN_HOOKS = "false";
     };
 
+    home.packages = with pkgs; [
+      turbo # High-performance build system for JavaScript and TypeScript codebases
+      watchman # React native dev environment nice to have
+    ];
+
     programs.zsh.shellAliases = {
       # Aliases to run dependent services
       run-doa =

@@ -42,6 +42,7 @@ inputs.darwin.lib.darwinSystem {
       nixlang.enable = true;
       javascript.enable = true;
       kubernetes.enable = true;
+      terraform.enable = true;
       python.enable = true;
       postgres.enable = true;
 

@@ -39,6 +39,7 @@
         "appcleaner" # Uninstall helper
         "balenaetcher" # Flash OS images
         "dropbox" # Used for Orgzly syncs
+        "obsidian" # Note taking
         "postico" # PostgreSQL DB Client
         "raycast" # Rofi for MacOS
         "sf-symbols" # Font for sketchybar
