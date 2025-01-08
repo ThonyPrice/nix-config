@@ -6,7 +6,7 @@
 
     home.packages = with pkgs; [
       # visidata # CSV inspector
-      _1password
+      _1password-cli
       zx
       coreutils
       dockutil

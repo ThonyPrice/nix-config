@@ -72,7 +72,8 @@
       };
 
       # Common overlays to always use
-      overlays = [ inputs.nur.overlay (import ./overlays/emacs.nix inputs) ];
+      overlays =
+        [ inputs.nur.overlays.default (import ./overlays/emacs.nix inputs) ];
 
       # System types to support.
       supportedSystems = [ "x86_64-linux" "aarch64-linux" "aarch64-darwin" ];

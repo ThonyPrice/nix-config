@@ -30,6 +30,7 @@ inputs.darwin.lib.darwinSystem {
       kitty.enable = true;
       slack.enable = true;
       spotify.enable = true;
+      syncthing.enable = true;
 
       raycast.enable = true;
 
