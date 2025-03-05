@@ -38,6 +38,7 @@
         "1password" # 1Password packaging on Nix is broken for macOS
         "appcleaner" # Uninstall helper
         "balenaetcher" # Flash OS images
+        "docker" # Docker Desktop
         "dropbox" # Used for Orgzly syncs
         "obsidian" # Note taking
         "postico" # PostgreSQL DB Client
