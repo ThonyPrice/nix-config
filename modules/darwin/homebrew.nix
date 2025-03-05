@@ -26,21 +26,32 @@
       };
       brewPrefix = "/opt/homebrew/bin";
       taps = [
-        "homebrew/cask" # Required for casks
-        "homebrew/cask-fonts" # For fonts
         "homebrew/services" # Nice to have?
-      ];
+      ] ++ (if config.aerospace.enable then
+        [
+          "nikitabobko/tap" # Tap for aerospace
+        ]
+      else
+        [ ]);
       brews = [ ];
       casks = [
         "1password" # 1Password packaging on Nix is broken for macOS
         "appcleaner" # Uninstall helper
         "balenaetcher" # Flash OS images
+        "docker" # Docker Desktop
         "dropbox" # Used for Orgzly syncs
-        "launchcontrol" # Launchctl GUI
-        "pgadmin4" # Admin/dev platform for PostgreSQL
-        "raycast" # Application launcher
+        "obsidian" # Note taking
+        "postico" # PostgreSQL DB Client
+        "raycast" # Rofi for MacOS
         "sf-symbols" # Font for sketchybar
-      ];
+        "remote-desktop-manager" # Instead of RDP
+        "zen-browser"
+      ] ++ (if config.aerospace.enable then
+        [
+          "nikitabobko/tap/aerospace" # i3 for MacOS
+        ]
+      else
+        [ ]);
     };
 
   };

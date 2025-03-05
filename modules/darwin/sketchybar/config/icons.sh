@@ -3,6 +3,7 @@
 # General Icons
 LOADING=􀖇
 APPLE=􀣺
+NIX=󱄅
 PREFERENCES=􀺽
 ACTIVITY=􀒓
 LOCK=􀒳

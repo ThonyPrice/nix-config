@@ -7,7 +7,7 @@
 
     home-manager.users.${config.user} = {
 
-      home.packages = with pkgs; [ nodejs_18 nodePackages.pnpm ];
+      home.packages = with pkgs; [ nodejs_20 nodePackages.pnpm ];
 
     };
 

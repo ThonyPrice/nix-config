@@ -8,6 +8,8 @@
       settings = {
         shell = "/run/current-system/sw/bin/zsh";
         macos_quit_when_last_window_closed = true;
+        scrollback_lines = 50000;
+        term = "xterm-kitty";
       };
     };
   };

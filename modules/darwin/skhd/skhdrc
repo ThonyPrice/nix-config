@@ -1,11 +1,5 @@
 # open terminal
 shift + cmd - return : /Users/thony/.nix-profile/bin/kitty --single-instance -d ~
-# open Slack
-shift + cmd - m : /Applications/Slack.app/Contents/MacOS/Slack
-# open page in browser
-shift + cmd - b : open -a "Google Chrome" https://aim.arkkapital.com
-# restart yabai service
-shift + cmd - u : yabai --restart-service
 
 # focus window
 alt - h : yabai -m window --focus west

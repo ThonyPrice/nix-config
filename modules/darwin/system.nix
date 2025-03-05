@@ -2,6 +2,7 @@
 
   config = lib.mkIf pkgs.stdenv.isDarwin {
 
+    system.stateVersion = 4;
     services.nix-daemon.enable = true;
 
     # This setting only applies to Darwin, different on NixOS
