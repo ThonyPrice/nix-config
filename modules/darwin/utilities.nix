@@ -6,10 +6,13 @@
 
     home.packages = with pkgs; [
       # visidata # CSV inspector
+      _1password-cli
+      zx
       coreutils
       dockutil
       ansible
       vault
+      samba
       (writeShellApplication {
         name = "ocr";
         runtimeInputs = [ tesseract ];

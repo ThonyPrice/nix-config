@@ -72,7 +72,8 @@
       };
 
       # Common overlays to always use
-      overlays = [ inputs.nur.overlay (import ./overlays/emacs.nix inputs) ];
+      overlays =
+        [ inputs.nur.overlays.default (import ./overlays/emacs.nix inputs) ];
 
       # System types to support.
       supportedSystems = [ "x86_64-linux" "aarch64-linux" "aarch64-darwin" ];
@@ -91,9 +92,11 @@
       # Contains my full Mac system builds, including home-manager
       # darwin-rebuild switch --flake .#pluto
       darwinConfigurations = {
-        # MDM Managed, hence the funky hostname
-	Thonys-MacBook-Pro.system =
-          import ./hosts/pluto { inherit inputs globals overlays; };
+        # MedTech client
+        Thonys-MBP = import ./hosts/laika { inherit inputs globals overlays; };
+        # FinTech client
+        # MAC-NL6CFNNHRP =
+        # import ./hosts/pluto { inherit inputs globals overlays; };
       };
 
       # For quickly applying home-manager settings with:
@@ -102,6 +105,8 @@
         # template = nixosConfigurations.template.config.home-manager.users.${globals.user}.home;
         pluto =
           darwinConfigurations.pluto.config.home-manager.users."thony".home;
+        laika =
+          darwinConfigurations.Thonys-MBP.config.home-manager.users."thony".home;
       };
 
       # Development environments

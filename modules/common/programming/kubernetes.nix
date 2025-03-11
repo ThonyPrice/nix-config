@@ -9,6 +9,7 @@
         kubectl # Basic Kubernetes queries
         kubernetes-helm # Helm CLI
         kubectx # Kubernetes context manager
+        kubelogin # Kubernete login manager by Azure
         kustomize # Kustomize CLI
       ];
 
