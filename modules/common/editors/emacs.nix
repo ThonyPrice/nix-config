@@ -2,18 +2,19 @@
 
   options.emacs.enable = lib.mkEnableOption "Enable common Emacs";
 
-  config = lib.mkIf config.emacs.enable {
+  # NOTE: Work in progress -> Migrate this to NixOS modules since 
+  # Emacs installation on MacOS now is managed by Homebrew
+  config = lib.mkIf (config.emacs.enable && pkgs.stdenv.isLinux) {
 
-    environment.systemPackages = with pkgs;
-      [
-        # Installs Emacs 29 + native-comp
-        pkgs.emacs-unstable
-      ];
+    # environment.systemPackages = with pkgs;
+      # [
+        # pkgs.emacs-unstable
+      # ];
 
     home-manager.users.${config.user} = {
 
       home.packages = with pkgs; [
-        # Doom Emacs dependencied
+        # Doom Emacs dependecies
         clang
         cmake
         coreutils
@@ -55,9 +56,9 @@
     };
 
     # Compile custom terminfo
-    # system.activationScripts.postUserActivation.text = ''
-      # ${pkgs.ncurses5}/bin/tic -x -o ~/.terminfo ${config.homePath}/.config/terminfo/xterm-emacs.ti
-    # '';
+    system.activationScripts.postUserActivation.text = ''
+      ${pkgs.ncurses5}/bin/tic -x -o ~/.terminfo ${config.homePath}/.config/terminfo/xterm-emacs.ti
+    '';
 
   };
 

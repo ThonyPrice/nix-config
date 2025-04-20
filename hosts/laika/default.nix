@@ -16,9 +16,10 @@ inputs.darwin.lib.darwinSystem {
     })
     inputs.home-manager.darwinModules.home-manager
     {
-      nixpkgs.overlays =
-        [ inputs.firefox-darwin.overlay inputs.emacs-overlay.overlay ]
-        ++ overlays;
+      nixpkgs.overlays = [ inputs.firefox-darwin.overlay ];
+        # NOTE: Try pre-compiled emacs
+        # inputs.emacs-overlay.overlay, otherwise this should be included in overlays
+      # ++ overlays; and this needs to be appended to the overlays list
       networking.hostName = "Thonys-MBP";
       # identityFile = "/Users/thony/.ssh/id_ed25519";
       gui.enable = true;
@@ -35,7 +36,7 @@ inputs.darwin.lib.darwinSystem {
       raycast.enable = true;
 
       # Editors
-      emacs.enable = true;
+      emacs.enable = false;
       neovim.enable = true;
       vscode.enable = true;
 

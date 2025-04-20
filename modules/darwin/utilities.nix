@@ -10,7 +10,7 @@
       zx
       coreutils
       dockutil
-      ansible
+      # ansible
       vault
       samba
       (writeShellApplication {

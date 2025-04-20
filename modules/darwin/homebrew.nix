@@ -27,6 +27,7 @@
       brewPrefix = "/opt/homebrew/bin";
       taps = [
         "homebrew/services" # Nice to have?
+        "d12frosted/emacs-plus"
       ] ++ (if config.aerospace.enable then
         [
           "nikitabobko/tap" # Tap for aerospace
@@ -38,8 +39,9 @@
         "1password" # 1Password packaging on Nix is broken for macOS
         "appcleaner" # Uninstall helper
         "balenaetcher" # Flash OS images
-        "docker" # Docker Desktop
+        #"docker" # Docker Desktop
         "dropbox" # Used for Orgzly syncs
+        "emacs-plus" # Great operating system
         "obsidian" # Note taking
         "postico" # PostgreSQL DB Client
         "raycast" # Rofi for MacOS

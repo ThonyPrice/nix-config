@@ -7,9 +7,9 @@
     home-manager.users.${config.user} = {
 
       home.packages = with pkgs; [
-        python311 # Standard Python interpreter
-        python311Packages.flake8 # Python linter
-        python311Packages.pip # Python package manager
+        python312 # Standard Python interpreter
+        python312Packages.flake8 # Python linter
+        python312Packages.pip # Python package manager
         poetry # Python dependency manager
         black # Python formatter
         pyright # Python language server
