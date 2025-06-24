@@ -4,16 +4,14 @@
 
   config = lib.mkIf config.emacs.enable {
 
-    environment.systemPackages = with pkgs;
-      [
-        # Installs Emacs 29 + native-comp
-        pkgs.emacs-unstable
-      ];
+    # NOTE: Work in progress -> Migrate this to NixOS modules,
+    # Emacs installation on MacOS is now managed by Homebrew
+    # environment.systemPackages = with pkgs; [ pkgs.emacs-unstable ];
 
     home-manager.users.${config.user} = {
 
       home.packages = with pkgs; [
-        # Doom Emacs dependencied
+        # Doom Emacs dependecies
         clang
         cmake
         coreutils

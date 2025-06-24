@@ -2,6 +2,7 @@
 
 {
 
+  unfreePackages = [ "_1password-cli" ];
   home-manager.users.${config.user} = lib.mkIf pkgs.stdenv.isDarwin {
 
     home.packages = with pkgs; [
@@ -10,7 +11,7 @@
       zx
       coreutils
       dockutil
-      ansible
+      # ansible
       vault
       samba
       (writeShellApplication {

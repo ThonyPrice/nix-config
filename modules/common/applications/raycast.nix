@@ -33,10 +33,10 @@
 
           if [[ $1 = "-t" ]]; then
             # Terminal mode
-            ${pkgs.emacs-unstable}/bin/emacsclient -t $@
+            emacsclient -t $@
           else
             # GUI mode
-            ${pkgs.emacs-unstable}/bin/emacsclient -c -n $@
+            emacsclient -c -n $@
           fi
         '';
       };

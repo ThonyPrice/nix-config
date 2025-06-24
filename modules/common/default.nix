@@ -1,11 +1,6 @@
 { config, lib, pkgs, ... }: {
 
-  imports = [
-    ./applications
-    ./editors
-    ./programming
-    ./shell
-  ];
+  imports = [ ./applications ./editors ./programming ./shell ];
 
   options = {
     user = lib.mkOption {
@@ -151,10 +146,8 @@
     # using multiple profiles for one user
     # home-manager.useUserPackages = true;
 
-    # Allow specified unfree packages (identified elsewhere)
-    # Retrieves package object based on string name
-    nixpkgs.config.allowUnfreePredicate = pkg:
-      builtins.elem (lib.getName pkg) config.unfreePackages;
+    # Allow specified unfree packages
+    nixpkgs.config.allowUnfree = true;
 
     # Pin a state version to prevent warnings
     home-manager.users.${config.user}.home.stateVersion = stateVersion;

@@ -27,23 +27,27 @@
       brewPrefix = "/opt/homebrew/bin";
       taps = [
         "homebrew/services" # Nice to have?
+        "d12frosted/emacs-plus"
       ] ++ (if config.aerospace.enable then
         [
           "nikitabobko/tap" # Tap for aerospace
         ]
       else
         [ ]);
-      brews = [ ];
+      brews = [
+        "emacs-plus" # Great operating system
+      ];
       casks = [
         "1password" # 1Password packaging on Nix is broken for macOS
         "appcleaner" # Uninstall helper
         "balenaetcher" # Flash OS images
-        "docker" # Docker Desktop
+        #"docker" # Docker Desktop
         "dropbox" # Used for Orgzly syncs
         "obsidian" # Note taking
         "postico" # PostgreSQL DB Client
         "raycast" # Rofi for MacOS
         "sf-symbols" # Font for sketchybar
+        "tailscale" # VPN
         "remote-desktop-manager" # Instead of RDP
         "zen-browser"
       ] ++ (if config.aerospace.enable then

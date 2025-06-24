@@ -40,6 +40,7 @@ inputs.darwin.lib.darwinSystem {
       vscode.enable = true;
 
       # Programming
+      ai.enable = true;
       nixlang.enable = true;
       javascript.enable = true;
       kubernetes.enable = true;

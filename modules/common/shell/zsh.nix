@@ -23,13 +23,12 @@
         # ssh = "kitty +kitten ssh";
 
       };
-      initExtra = ''
+      initContent = ''
         # nix
         if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
           . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
         fi
         # end nix
-        export PATH="${pkgs.emacs-unstable}/bin:$PATH"
         export PATH="${config.homePath}/.emacs.d/bin:$PATH"
         export PATH="${config.homePath}/git/nix-config/bin:$PATH"
         export PATH="${config.homePath}/.local/bin:$PATH"
