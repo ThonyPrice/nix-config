@@ -1,6 +1,7 @@
 { ... }: {
 
   imports = [
+    ./ai.nix
     ./go.nix
     ./javascript.nix
     ./kubernetes.nix

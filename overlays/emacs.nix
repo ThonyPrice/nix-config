@@ -13,8 +13,9 @@ let
 
 in {
 
-  emacs = (import (builtins.fetchTarball {
-    url = emacsUnstableFork;
-    sha256 = emacsOverlaySha256;
-  }));
+  emacs = null;
+  # (import (builtins.fetchTarball {
+  #   url = emacsUnstableFork;
+  #   sha256 = emacsOverlaySha256;
+  # }));
 }

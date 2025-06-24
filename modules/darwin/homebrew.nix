@@ -34,18 +34,20 @@
         ]
       else
         [ ]);
-      brews = [ ];
+      brews = [
+        "emacs-plus" # Great operating system
+      ];
       casks = [
         "1password" # 1Password packaging on Nix is broken for macOS
         "appcleaner" # Uninstall helper
         "balenaetcher" # Flash OS images
         #"docker" # Docker Desktop
         "dropbox" # Used for Orgzly syncs
-        "emacs-plus" # Great operating system
         "obsidian" # Note taking
         "postico" # PostgreSQL DB Client
         "raycast" # Rofi for MacOS
         "sf-symbols" # Font for sketchybar
+        "tailscale" # VPN
         "remote-desktop-manager" # Instead of RDP
         "zen-browser"
       ] ++ (if config.aerospace.enable then

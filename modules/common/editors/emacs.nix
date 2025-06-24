@@ -2,14 +2,11 @@
 
   options.emacs.enable = lib.mkEnableOption "Enable common Emacs";
 
-  # NOTE: Work in progress -> Migrate this to NixOS modules since 
-  # Emacs installation on MacOS now is managed by Homebrew
-  config = lib.mkIf (config.emacs.enable && pkgs.stdenv.isLinux) {
+  config = lib.mkIf config.emacs.enable {
 
-    # environment.systemPackages = with pkgs;
-      # [
-        # pkgs.emacs-unstable
-      # ];
+    # NOTE: Work in progress -> Migrate this to NixOS modules,
+    # Emacs installation on MacOS is now managed by Homebrew
+    # environment.systemPackages = with pkgs; [ pkgs.emacs-unstable ];
 
     home-manager.users.${config.user} = {
 
@@ -56,9 +53,9 @@
     };
 
     # Compile custom terminfo
-    system.activationScripts.postUserActivation.text = ''
-      ${pkgs.ncurses5}/bin/tic -x -o ~/.terminfo ${config.homePath}/.config/terminfo/xterm-emacs.ti
-    '';
+    # system.activationScripts.postUserActivation.text = ''
+      # ${pkgs.ncurses5}/bin/tic -x -o ~/.terminfo ${config.homePath}/.config/terminfo/xterm-emacs.ti
+    # '';
 
   };
 

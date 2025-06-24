@@ -2,6 +2,8 @@
 
   config = lib.mkIf pkgs.stdenv.isDarwin {
 
+    system.primaryUser = "thony";
+
     system.stateVersion = 4;
     # services.nix-daemon.enable = true;
 
