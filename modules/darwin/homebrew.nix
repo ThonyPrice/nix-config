@@ -36,6 +36,8 @@
         [ ]);
       brews = [
         "emacs-plus" # Great operating system
+        "libvterm" # Emacs vterm
+        "libtool" # Emacs vterm
       ];
       casks = [
         "1password" # 1Password packaging on Nix is broken for macOS
